@@ -1,0 +1,791 @@
+/*   
+Theme Name: ONA12 Theme
+Theme URI: http://ona12.journalists.org/
+Description: Child theme of HTML5 Reset Theme.
+Author: Sean Connolly
+Author URI: http://sean-connolly.com/
+Template: html5-reset
+Version: 1.0
+*/
+
+/*   
+Theme Name: The HTML5 Reset Theme
+Theme URI: http://html5reset.org
+Description: A style-free theme to get you started on an HTML5-based Wordpress theme of your own.
+Author: Monkey Do!
+Author URI: http://monkeydo.biz
+Version: 1
+*/
+
+/*
+	HTML5 Reset Wordpress Theme :: style.css
+	----------------------------------------------------------
+	We have learned much from/been inspired by/taken code where offered from:
+	
+	Eric Meyer					:: http://ericmeyer.com
+	HTML5 Doctor				:: http://html5doctor.com
+	and the HTML5 Boilerplate	:: http://html5boilerplate.com
+	
+	Special thanks: The Wordpress theme owes its start to an empty theme authored 
+		by Chris Coyier & Jeff Starr: http://digwp.com
+	
+-------------------------------------------------------------------------------*/
+
+/* Let's default this puppy out
+-------------------------------------------------------------------------------*/
+
+html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, hgroup, menu, nav, section, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}									
+
+article, aside, figure, footer, header, hgroup, nav, section {display: block;}
+
+/* Responsive images and other embedded objects
+   Note: keeping IMG here will cause problems if you're using foreground images as sprites, like, say for Google Maps custom placemarkers. 
+   There has been a report of problems with standard Google maps as well, but we haven't been able to duplicate or diagnose the issue. */
+img,
+object,
+embed {max-width: 100%;}
+
+/* force a vertical scrollbar to prevent a jumpy page */
+html {overflow-y: scroll;}
+
+/* we use a lot of ULs that aren't bulleted. 
+	don't forget to restore the bullets within content. */
+ul {list-style: none;}
+
+blockquote, q {quotes: none;}
+
+blockquote:before, 
+blockquote:after, 
+q:before, 
+q:after {content: ''; content: none;}
+
+a {margin: 0; padding: 0; font-size: 100%; vertical-align: baseline; background: transparent;}
+
+del {text-decoration: line-through;}
+
+abbr[title], dfn[title] {border-bottom: 1px dotted #000; cursor: help;}
+
+/* tables still need cellspacing="0" in the markup */
+table {border-collapse: collapse; border-spacing: 0;}
+th {font-weight: bold; vertical-align: bottom;}
+td {font-weight: normal; vertical-align: top;}
+
+hr {display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0;}
+
+input, select {vertical-align: middle;}
+
+pre {
+	white-space: pre; /* CSS2 */
+	white-space: pre-wrap; /* CSS 2.1 */
+	white-space: pre-line; /* CSS 3 (and 2.1 as well, actually) */
+	word-wrap: break-word; /* IE */
+}
+
+input[type="radio"] {vertical-align: text-bottom;}
+input[type="checkbox"] {vertical-align: bottom; *vertical-align: baseline;}
+.ie6 input {vertical-align: text-bottom;}
+
+select, input, textarea {font: 99% sans-serif;}
+
+table {font-size: inherit; font: 100%;}
+ 
+/* Accessible focus treatment
+	people.opera.com/patrickl/experiments/keyboard/test */
+a:hover, a:active {outline: none;}
+
+small {font-size: 85%;}
+
+strong, th {font-weight: bold;}
+
+td, td img {vertical-align: top;} 
+
+/* Make sure sup and sub don't screw with your line-heights
+	gist.github.com/413930 */
+sub, sup {font-size: 75%; line-height: 0; position: relative;}
+sup {top: -0.5em;}
+sub {bottom: -0.25em;}
+
+/* standardize any monospaced elements */
+pre, code, kbd, samp {font-family: monospace, sans-serif;}
+
+/* hand cursor on clickable elements */
+.clickable,
+label, 
+input[type=button], 
+input[type=submit], 
+button {cursor: pointer;}
+
+/* Webkit browsers add a 2px margin outside the chrome of form elements */
+button, input, select, textarea {margin: 0;}
+
+/* make buttons play nice in IE */
+button {width: auto; overflow: visible;}
+ 
+/* scale images in IE7 more attractively */
+.ie7 img {-ms-interpolation-mode: bicubic;}
+
+/* prevent BG image flicker upon hover */
+.ie6 html {filter: expression(document.execCommand("BackgroundImageCache", false, true));}
+
+/* let's clear some floats */
+.clearfix:before, .clearfix:after { content: "\0020"; display: block; height: 0; overflow: hidden; }  
+.clearfix:after { clear: both; }  
+.clearfix { zoom: 1; }  
+
+
+
+/* Ok, this is where the fun starts.
+-------------------------------------------------------------------------------*/
+
+/* new Linux- and Windows-friendly sans-serif font stack: http://mky.be/fontstack */
+body {font: 13px Helmet, Freesans, sans-serif;}
+
+/* using local fonts? make sure to read up on Paul Irish's 
+	Bulletproof @font-face syntax: http://mky.be/font-face/bulletproof/ */
+
+/* we like off-black for text */
+body, select, input, textarea {color: #333;}
+
+a {color: #03f;}
+a:hover {color: #69f;}
+
+/* Custom text-selection colors (remove any text shadows: twitter.com/miketaylr/status/12228805301) */
+::-moz-selection{background: #fcd700; color: #fff; text-shadow: none;}
+::selection {background: #fcd700; color: #fff; text-shadow: none;} 
+
+/*	j.mp/webkit-tap-highlight-color */
+a:link {-webkit-tap-highlight-color: #fcd700;} 
+
+ins {background-color: #fcd700; color: #000; text-decoration: none;}
+mark {background-color: #fcd700; color: #000; font-style: italic; font-weight: bold;}
+
+
+
+/* And here begins the Wordpress fun.
+-------------------------------------------------------------------------------*/
+
+#page-wrap {width: 960px; margin: 20px auto;}
+
+.post {}
+
+.entry-content {}
+.entry-content a {}
+.entry-content a:hover {}
+
+#meta {}
+.postmetadata {}
+
+#sidebar {}
+
+.navgation {}
+.next-posts {}
+.prev-posts {}
+
+#searchform {}
+#s {}
+#searchsubmt {}
+	
+ol.commentlist {list-style: none;}
+ol.commentlist li {}
+ol.commentlist li.alt {}
+ol.commentlist li.bypostauthor {}
+ol.commentlist li.byuser {}
+ol.commentlist li.comment-author-admin {}
+ol.commentlist li.comment {border-bottom: 1px dotted #666; padding: 10px;}
+ol.commentlist li.comment div.comment-author {}
+ol.commentlist li.comment div.vcard {}
+ol.commentlist li.comment div.vcard cite.fn {font-style: normal;}
+ol.commentlist li.comment div.vcard cite.fn a.url {}
+ol.commentlist li.comment div.vcard img.avatar {float:right; margin: 0 0 10px 10px;}
+ol.commentlist li.comment div.vcard img.avatar-32 {}
+ol.commentlist li.comment div.vcard img.photo {}
+ol.commentlist li.comment div.vcard span.says {}
+ol.commentlist li.comment div.commentmetadata {}
+ol.commentlist li.comment div.comment-meta {font-size: 10px;}
+ol.commentlist li.comment div.comment-meta a {color: #ccc;}
+ol.commentlist li.comment p {}
+ol.commentlist li.comment ul {}
+ol.commentlist li.comment div.reply {font-size: 11px;}
+ol.commentlist li.comment div.reply a {font-weight: bold;}
+ol.commentlist li.comment ul.children {list-style: none; margin: 10px 0 0;}
+ol.commentlist li.comment ul.children li {}
+ol.commentlist li.comment ul.children li.alt {}
+ol.commentlist li.comment ul.children li.bypostauthor {}
+ol.commentlist li.comment ul.children li.byuser {}
+ol.commentlist li.comment ul.children li.comment {}
+ol.commentlist li.comment ul.children li.comment-author-admin {}
+ol.commentlist li.comment ul.children li.depth-2 {border-left: 5px solid #555; margin: 0 0 10px 10px;}
+ol.commentlist li.comment ul.children li.depth-3 {border-left: 5px solid #999; margin: 0 0 10px 10px;}
+ol.commentlist li.comment ul.children li.depth-4 {border-left: 5px solid #bbb; margin: 0 0 10px 10px;}
+ol.commentlist li.comment ul.children li.depth-5 {}
+ol.commentlist li.comment ul.children li.odd {}
+ol.commentlist li.even {background: #fff;}
+ol.commentlist li.odd {background: #f6f6f6;}
+ol.commentlist li.parent {border-left: 5px solid #111;}
+ol.commentlist li.thread-alt {}
+ol.commentlist li.thread-even {}
+ol.commentlist li.thread-odd {}
+
+
+/* Print styles!
+-------------------------------------------------------------------------------*/
+@media print {
+
+
+
+}
+
+
+/* Media queries!
+-------------------------------------------------------------------------------*/
+
+/* Consider this: www.cloudfour.com/css-media-query-for-mobile-is-fools-gold/ */
+@media screen and (max-device-width: 480px) {
+	
+		
+}
+
+@media all and (orientation: portrait) {
+	
+}
+
+@media all and (orientation: landscape) {
+	
+}
+
+/* Custom CSS below */
+
+body {
+	background-color:#FCEBB8;
+	color:#222;
+	font-size:16px;
+	font-family:"Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
+}
+
+#page-wrap {
+	width:100%;
+	margin:0;
+	padding:0;
+}
+
+h1, h2, h3, h4 {
+	font-family:"Bitter", Georgia, Times, serif;
+	margin:0 0 10px 0;
+}
+
+h5, h6 {
+	font-family:"Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
+	margin:0 0 6px 0;
+}
+
+h1 { font-size:48px; font-weight:normal; color:#F15822; }
+h2 { font-size:32px; font-weight:normal; color:#14545F; }
+h3 { font-size:24px; font-weight:normal; color:#14545F; }
+h4 { font-size:18px; font-weight:normal; color:#14545F; }
+h5 { font-size:16px; font-weight:bold; color:#F15822; }
+h6 { font-size:16px; font-style:italic; color:#F15822; }
+
+a:link {
+	color:#F15822;
+	text-decoration:underline;
+}
+
+a:visited {
+	color:#F15822;
+	text-decoration:underline;
+}
+
+a:hover {
+	text-decoration:none;
+}
+
+a:active {
+	color:#F15822;
+	text-decoration:none;
+}
+
+hr {
+	border-top:0;
+	border-left:0;
+	border-right:0;
+	border-bottom:3px solid #14545F;
+}
+
+p {
+	margin:0 0 10px 0;
+}
+
+/* Header */
+
+#header-container {
+	width:100%;
+	background:url('img/diagonal-bg.png');
+}
+
+header {
+	padding:20px 0;
+}
+
+header h1, header h2, header h3, header h4 {
+	font-weight:normal;
+}
+
+header a:link, header a:visited, header a:hover, header a:active {
+	text-decoration:none;
+}
+
+header img.header-logo {
+	width:160px;
+	height:160px;
+}
+
+img.header-logo-big {
+	width:300px;
+	height:300px;
+}
+
+header #header-text, header #header-text-big {
+	padding:20px 0;
+}
+
+header hr {
+	border-bottom:3px solid #F15822;
+}
+
+header .header-button {
+	text-align:center;
+	margin:40px 0 0 0;
+	line-height:18px;
+}
+
+header .header-button a:link, header .header-button a:visited, header .header-button a:hover, header .header-button a:active {
+	color:#fff;
+	padding:10px 10px;
+	font-size:16px;
+	color:#fff;
+	text-shadow:0px 1px 1px #222;
+	border:2px solid #14545F;
+    -webkit-border-radius: 18px;
+	-moz-border-radius: 18px;
+	border-radius: 18px;
+	
+	background-image: linear-gradient(bottom, rgb(20,84,95) 0%, rgb(97,181,161) 70%);
+	background-image: -o-linear-gradient(bottom, rgb(20,84,95) 0%, rgb(97,181,161) 70%);
+	background-image: -moz-linear-gradient(bottom, rgb(20,84,95) 0%, rgb(97,181,161) 70%);
+	background-image: -webkit-linear-gradient(bottom, rgb(20,84,95) 0%, rgb(97,181,161) 70%);
+	background-image: -ms-linear-gradient(bottom, rgb(20,84,95) 0%, rgb(97,181,161) 70%);
+
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0, rgb(20,84,95)),
+		color-stop(0.7, rgb(97,181,161))
+	);
+}
+
+header .header-button a:hover, header .header-button a:active {
+	background:#61B5A2;
+}
+
+header .header-button a img {
+	position:relative;
+	top:1px;
+	vertical-align:text-bottom;
+}
+
+/* Nav */
+
+#nav-container {
+	width:100%;
+	color:#eee;
+	background-color:#14545F;
+	font-family:"Bitter", Georgia, Times, serif;
+	font-size:14px;
+	line-height:14px;
+	border-bottom:3px solid #FAA343;
+}
+
+/* Nav menu, adapted from twentyeleven */
+
+#nav-content {
+    display:block;
+    float:left;
+    height:34px;
+}
+
+#nav-content ul {
+    font-size:16px;
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+
+#nav-content li {
+	line-height:14px;
+    float: left;
+    position: relative;
+    height:14px;
+}
+
+#nav-content ul li {
+	padding:10px 15px 10px 0;
+}
+
+#nav-content ul ul li {
+	padding:0;
+}
+
+#nav-content a {
+    color: #eee;
+    display: block;
+/*	line-height:20px;
+    padding:10px; */
+    text-decoration: none;
+/*  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5); */
+}
+
+#nav-content ul ul {
+    background-color:#14545F;
+    display: none;
+    float: left;
+    margin: 0;
+    position: absolute;
+    top:34px;
+    left: 0;
+    font-family:"Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
+/*  z-index: 99999; */
+    -moz-box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    -webkit-box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    border-bottom:3px solid #FAA343;
+    border-left:3px solid #FAA343;
+    border-right:3px solid #FAA343;
+    -webkit-border-bottom-right-radius: 4px;
+	-webkit-border-bottom-left-radius: 4px;
+	-moz-border-radius-bottomright: 4px;
+	-moz-border-radius-bottomleft: 4px;
+	border-bottom-right-radius: 4px;
+	border-bottom-left-radius: 4px;
+}
+
+#nav-content ul ul ul {
+    left: 100%;
+    top: 0;
+}
+
+#nav-content ul ul li {
+	height:auto;
+    min-width:140px;
+    width:auto;
+}
+
+#nav-content ul ul a {
+    color:#fff;
+    font-size:12px;
+    font-weight:normal;
+    height:auto;
+    width:auto;
+    padding:6px 10px;
+    margin:0;
+    line-height:14px;
+}
+
+#nav-content li:hover > a,
+#nav-content a:focus {
+	color:#61B5A2;
+	text-shadow:0 0;
+}
+
+#nav-content ul ul li:hover > a {
+	color:#61B5A2;
+	text-shadow:0 0;
+}
+
+#nav-content ul li:hover > ul {
+    display: block;
+}
+
+/* Content */
+
+#content-container {
+	width:100%;
+	background:url('img/diagonal-bg.png');
+}
+
+#content-container .box {
+	padding:20px;
+	background-color:#fff;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	-webkit-box-shadow: 0px 5px 10px #6D8185;
+	-moz-box-shadow: 0px 5px 10px #6D8185;
+	box-shadow: 0px 5px 10px #6D8185;
+}
+
+.content-row {
+	padding:20px 0;
+}
+
+#posts-container article.post {
+	margin-bottom:20px;
+}
+
+#posts-container article.post #post-info {
+	color:#6D8185;
+	width:150px;
+	font-size:12px;
+	border-left:3px solid #14545F;
+	float:right;
+	padding-left:8px;
+	margin:16px 0 10px 10px;
+	line-height:20px;
+}
+
+#posts-container article.post #post-info a:link {
+	color:#FAA343;
+	text-decoration:none;
+}
+
+#posts-container article.post #post-info a:visited {
+	color:#FAA343;
+	text-decoration:none;
+}
+
+#posts-container article.post #post-info a:hover {
+	color:#FAA343;
+	border-bottom:1px solid #FAA343;
+}
+
+#posts-container article.post #post-info a:active {
+	color:#FAA343;
+	border-bottom:1px solid #FAA343;
+}
+
+#posts-container article.post #post-info img.meta-icon {
+	width:12px;
+	height:12px;
+	vertical-align:text-top;
+	margin:1px 6px 0 0;
+}
+
+#posts-container article.post #post-info .tags-icon {
+	background:url('img/meta-tags.png');
+	float:left;
+	width:12px;
+	height:12px;
+	vertical-align:text-top;
+	margin:1px 6px 0 0;
+}
+
+#posts-container article.post .post-title {
+	line-height:36px;
+}
+
+#posts-container article.post a.post-title:link { text-decoration:none; }
+#posts-container article.post a.post-title:visited { text-decoration:none; }
+#posts-container article.post a.post-title:hover { text-decoration:none; border-bottom:1px solid #F15822; }
+#posts-container article.post a.post-title:active { text-decoration:none; border-bottom:1px solid #F15822; }
+
+#posts-container article.post a.jumptext {
+	font-family:"Bitter", Georgia, Times, serif;
+	font-weight:normal;
+	text-transform:uppercase;
+}
+
+#posts-container article.post a.jumptext:link { text-decoration:none; font-size:13px; }
+#posts-container article.post a.jumptext:visited { text-decoration:none; font-size:13px; }
+#posts-container article.post a.jumptext:hover { text-decoration:none; font-size:13px; border-bottom:1px solid #F15822; }
+#posts-container article.post a.jumptext:active { text-decoration:none; font-size:13px; border-bottom:1px solid #F15822; }
+
+#posts-container article.post .entry {
+	line-height:24px;
+	text-align:justify;
+}
+
+/* Sidebar */
+
+#sidebar {
+	font-size:12px;
+}
+
+#sidebar h2 {
+	font-size:20px;
+	font-weight:normal;
+}
+
+#sidebar h2 a {
+	color:#14545F;
+}
+
+#sidebar .widget {
+	padding:10px;
+	background-color:#fff;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	-webkit-box-shadow: 0px 5px 10px #6D8185;
+	-moz-box-shadow: 0px 5px 10px #6D8185;
+	box-shadow: 0px 5px 10px #6D8185;
+	margin-bottom:20px;
+}
+
+#sidebar .widget_rss a.rsswidget img {
+	display:none;
+}
+
+#sidebar ul li {
+	margin:0 0 6px 0;
+	line-height:16px;
+}
+
+#sidebar ul li:before {
+	color:#222;
+	content:"›  ";
+	font-weight:bold;
+}
+
+#sidebar #twitter-2 ul li span.time-meta {
+	display:block;
+	clear:both;
+	margin-top:2px;
+}
+
+#sidebar #twitter-2 ul li span.time-meta a {
+	color:#6D8185;
+}
+
+#sidebar a:link { text-decoration:none; }
+#sidebar a:visited { text-decoration:none; }
+#sidebar a:hover { text-decoration:none; border-bottom:1px solid #F15822; }
+#sidebar a:active { text-decoration:none; border-bottom:1px solid #F15822; }
+
+/* Calendar */
+
+#content-calendar #calendar .widget {
+	font-size:12px;
+}
+
+/* Footer */
+
+#footer-container {
+	border-top:3px solid #14545F;
+	background-color:#FCEBB8;
+	padding:20px 0;
+	font-size:12px;
+}
+
+#footer-container a:link {
+	text-decoration:none;
+}
+
+#footer-container a:visited {
+	text-decoration:none;
+}
+
+#footer-container a:hover {
+	text-decoration:underline;
+}
+
+#footer-container a:active {
+	text-decoration:underline;
+}
+
+#footer-container p {
+	text-align:justify;
+}
+
+#footer-container .contact p.center {
+	font-size:16px;
+}
+
+#footer-container p {
+	text-align:left;
+}
+
+#footer-container p.center, #footer-container .center {
+	text-align:center;
+}
+
+#footer-container dl dt {
+	font-weight:bold;
+	border-bottom:1px solid #222;
+	text-transform:uppercase;
+	margin-top:10px;
+	font-size:13px;
+}
+
+#footer-container dl dt.alpha {
+	margin-top:0;
+}
+
+#footer-container dl dd {
+	font-weight:bold;
+	margin:4px 0;
+	margin-left: 10px;
+	text-indent: -10px;
+}
+
+#footer-container dl dd em {
+	font-weight:normal;
+	font-style:normal;
+}
+
+/* Featured posts */
+
+#content-featured {
+	padding:20px 0;
+}
+
+#content-featured #featured-posts .featured-post {
+	font-size:12px;
+}
+
+#content-featured #featured-posts .featured-post a.jumptext {
+	font-family:"Bitter", Georgia, Times, serif;
+	font-weight:normal;
+	text-transform:uppercase;
+}
+
+#content-featured #featured-posts .featured-post img {
+	width:214px;
+	height:auto;
+	border:1px solid #FAA343;
+	padding:2px;
+	margin:0;
+}
+
+#content-featured #featured-posts .featured-post a.jumptext:link { text-decoration:none; font-size:13px; }
+#content-featured #featured-posts .featured-post a.jumptext:visited { text-decoration:none; font-size:13px; }
+#content-featured #featured-posts .featured-post a.jumptext:hover { text-decoration:none; font-size:13px; border-bottom:1px solid #F15822; }
+#content-featured #featured-posts .featured-post a.jumptext:active { text-decoration:none; font-size:13px; border-bottom:1px solid #F15822; }
+
+#content-featured #featured-posts .featured-post a.post-title:link { text-decoration:none; color:#14545F; }
+#content-featured #featured-posts .featured-post a.post-title:visited { text-decoration:none; color:#14545F; }
+#content-featured #featured-posts .featured-post a.post-title:hover { text-decoration:none; color:#14545F; border-bottom:1px solid #14545F; }
+#content-featured #featured-posts .featured-post a.post-title:active { text-decoration:none; color:#14545F; border-bottom:1px solid #14545F; }
+
+/*
+
+Palette:
+
+222222 - grey-black (body text)
+eeeeee - off-white (content box backgrounds)
+
+D45928 - burnt orange
+F15822 - orange
+FAA343 - orange creme
+FCEBB8 - beige
+61B5A2 - teal
+14545F - dark blue-green
+
+*/
