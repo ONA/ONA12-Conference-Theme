@@ -1,9 +1,9 @@
 <?php
 /*
-Template Name: Home
+Template Name: Posts
 */
 ?>
-<?php get_header('big'); ?>
+<?php get_header(); ?>
 
 <div id="content-featured" class="container_12">
 	
@@ -16,7 +16,7 @@ Template Name: Home
 
 	<div class="grid_3">
 	<article class="featured-post box">
-		<h3><?php the_title(); ?></h3>
+		<h4><?php the_title(); ?></h4>
 		<?php the_content(''); ?>
 	</article><!-- .featured-post -->	
 	</div>
@@ -92,6 +92,7 @@ Template Name: Home
 	<div id="calendar" class="calendar-box">
 		<div class="calendar-box-content">
 	<h2>Calendar</h2>
+	<p>Here are some upcoming dates to keep in mind as we get closer to the conference.</p>
 	<hr />
 	</div><!-- .calendar-box-content -->
 	

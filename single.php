@@ -20,7 +20,7 @@
 			<?php /* comments_popup_link('No Comments', '1 Comment', '% Comments', 'comments-link', ''); */ ?>
 			</div><!-- #post-info -->
 			
-			<h2><a href="<?php the_permalink(); ?>" class="post-title"><?php the_title(); ?></a></h2>
+			<h2 class="title"><a href="<?php the_permalink(); ?>" class="post-title"><?php the_title(); ?></a></h2>
 			
 			<div class="entry">
 

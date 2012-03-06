@@ -9,7 +9,7 @@
 			
 		<article class="post" id="post-<?php the_ID(); ?>">
 			
-			<h2><a href="<?php the_permalink(); ?>" class="post-title"><?php the_title(); ?></a></h2>
+			<h2 class="title"><a href="<?php the_permalink(); ?>" class="post-title"><?php the_title(); ?></a></h2>
 			
 			<div class="entry">
 

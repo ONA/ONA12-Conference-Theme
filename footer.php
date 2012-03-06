@@ -12,7 +12,7 @@
 			<p><strong>Sponsorships:</strong><br /><a href="mailto:tregan@journalists.org">tregan@journalists.org</a></p>
 			<p><strong>Job Fair:</strong><br /><a href="mailto:ona12jobfair@journalists.org">ONA12jobfair@journalists.org</a></p>
 			<p><strong>Student Newsroom:</strong><br /><a href="mailto:ona12newsroom@journalists.org">ONA12newsroom@journalists.org</a></p>
-			<p><strong>Volunteers:</strong><br /><a href="mailto:ona12volunteers@journalists.org">ONA12volunteers@journalists.org</a></p>
+			<!-- <p><strong>Volunteers:</strong><br /><a href="mailto:ona12volunteers@journalists.org">ONA12volunteers@journalists.org</a></p> -->
 			</div>
 			
 			<div class="conference-committee footer-content grid_3">
