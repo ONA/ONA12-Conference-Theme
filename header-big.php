@@ -144,7 +144,7 @@
 
 	<?php endif; ?>
 			
-		<div class="grid_3 alpha header-button push_1"><a href="http://sessionselector.journalists.org/">Session Selector <img src="<?php bloginfo('stylesheet_directory'); ?>/img/button-jump.png" /></a></div>
+		<div class="grid_3 alpha header-button push_1"><a href="register">Register <img src="<?php bloginfo('stylesheet_directory'); ?>/img/button-jump.png" /></a></div>
 		<div class="grid_3 omega header-button push_1"><a href="https://resweb.passkey.com/Resweb.do?mode=welcome_ei_new&eventID=8247714">Book a Room <img src="<?php bloginfo('stylesheet_directory'); ?>/img/button-jump.png" /></a></div>
 			
 		</header>

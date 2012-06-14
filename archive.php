@@ -2,7 +2,7 @@
 
 <div id="content-row" class="container_12">
 
-	<div id="posts-container" class="grid_8">
+	<div id="posts-container" class="grid_9">
 	<div id="posts" class="box">
 
 		<?php if (have_posts()) : ?>

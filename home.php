@@ -5,6 +5,7 @@ Template Name: Home
 ?>
 <?php get_header('big'); ?>
 
+<div id="content-featured-container">
 <div id="content-featured" class="container_12">
 	
 	<div id="featured-posts">
@@ -14,8 +15,8 @@ Template Name: Home
 				$more = 0;
 	?>
 
-	<div class="grid_3">
-	<article class="featured-post box">
+	<div class="featured-post-container grid_3">
+	<article class="featured-post">
 		<h3><?php the_title(); ?></h3>
 		<?php the_content(''); ?>
 	</article><!-- .featured-post -->	
@@ -24,17 +25,26 @@ Template Name: Home
 	<?php endforeach; ?>
 	</div><!-- #featured-posts -->
 
+<!--	<div id="sponsors-top" class="content-row container_12">
+		<div class="grid_12">
+		<h4>Sponsors</h4>
+
+			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('Sponsors (Top)')) : else : ?>
+	
+			<?php endif; ?>
+		
+		<p class="separator"><a href="" class="jumptext">See all attending sponsors and exhibitors &rsaquo;</a></p>
+		
+		</div>
+	</div> -->
+
 </div><!-- #content-featured -->
 
-<!-- <div id="sponsors-top" class="content-row container_12">
-	<div class="grid_12">
-	<?php include 'sponsors-top.php'; ?>
-	</div>
-</div> -->
+</div><!-- #content-featured-container -->
 
 <div id="home-content" class="content-row container_12">
 
-	<div id="posts-container" class="grid_8">
+	<div id="posts-container" class="grid_9">
 	<div id="posts" class="box">
 	
 	<?php rewind_posts(); ?>
@@ -46,9 +56,10 @@ Template Name: Home
 	
 		<article class="post" id="post-<?php the_ID(); ?>">
 			
+			<h2><a href="<?php the_permalink(); ?>" class="post-title"><?php the_title(); ?></a></h2>
+
 			<div id="post-info">
-			<img src="<?php bloginfo('stylesheet_directory'); ?>/img/meta-calendar.png" class="meta-icon" /><time datetime="<?php echo date(DATE_W3C); ?>" pubdate class="updated"><?php if (function_exists('ap_date')) { echo '<span class="date">'; ap_date(); echo '</span>'; echo " &mdash; "; } else { } ?><?php if (function_exists('ap_time')) { ap_time(); } else { the_time('F jS, Y'); } ?></time><br />
-			<img src="<?php bloginfo('stylesheet_directory'); ?>/img/meta-category.png" class="meta-icon" /><?php the_category(', '); ?><br />
+			<img src="<?php bloginfo('stylesheet_directory'); ?>/img/meta-calendar.png" class="meta-icon" /><time datetime="<?php echo date(DATE_W3C); ?>" pubdate class="updated"><?php if (function_exists('ap_date')) { echo '<span class="date">'; ap_date(); echo '</span>'; echo " &mdash; "; } else { } ?><?php if (function_exists('ap_time')) { ap_time(); } else { the_time('F jS, Y'); } ?></time> <img src="<?php bloginfo('stylesheet_directory'); ?>/img/meta-category.png" class="meta-icon" /><?php the_category(', '); ?>
 			
 			<?php the_tags('<div class="tags-icon"></div>','','') ?>
 			
@@ -56,8 +67,6 @@ Template Name: Home
 			<i>by</i> <span class="fn"><?php the_author() ?></span></span> */ ?>
 			<?php /* comments_popup_link('No Comments', '1 Comment', '% Comments', 'comments-link', ''); */ ?>
 			</div><!-- #post-info -->
-			
-			<h2><a href="<?php the_permalink(); ?>" class="post-title"><?php the_title(); ?></a></h2>
 			
 			<div class="entry">
 

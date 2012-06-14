@@ -9,13 +9,19 @@
 			<hr />
 			<p>Or, if you have a specific inquiry:</p>
 			<p><strong>Programming:</strong><br /><a href="mailto:ona12program@journalists.org">ONA12program@journalists.org</a></p>
-			<p><strong>Sponsorships:</strong><br /><a href="mailto:tregan@journalists.org">tregan@journalists.org</a></p>
+			<p><strong>Sponsorships:</strong><br /><a href="mailto:branden@journalists.org">branden@journalists.org</a></p>
 			<p><strong>Job Fair:</strong><br /><a href="mailto:ona12jobfair@journalists.org">ONA12jobfair@journalists.org</a></p>
 			<p><strong>Student Newsroom:</strong><br /><a href="mailto:ona12newsroom@journalists.org">ONA12newsroom@journalists.org</a></p>
 			<!-- <p><strong>Volunteers:</strong><br /><a href="mailto:ona12volunteers@journalists.org">ONA12volunteers@journalists.org</a></p> -->
 			</div>
 			
-			<div class="conference-committee footer-content grid_3">
+			<div id="conference-committee-container" class="grid_6">
+			
+			<h3>Conference Committee</h3>
+			
+			<hr />
+			
+			<div class="conference-committee footer-content alpha grid_3">
 	<dl>
 		<dt class="alpha">Conference Chairs</dt>
 		<dd>Pam Maples <em>Stanford University</em></dd>
@@ -33,18 +39,24 @@
 		
 		<dt>Career Summit</dt>
 		<dd>Anna Tauzin <em>National Restaurant Association</em></dd>
+		
+<!--		<dt>Job Fair</dt>
+		<dd>Julio Moran</dd>
+		<dd>Cristina Azocar</dd> -->
 
 	</dl>
 			</div>
 			
-			<div class="conference-committee footer-content grid_3">
+			<div class="conference-committee footer-content omega grid_3">
 	<dl>
 		<dt class="alpha">Sponsorships</dt>
+		<dd><a href="mailto:branden.smith@journalists.org">Branden Smith</a> <em>ONA</em></dd>
 		<dd><a href="mailto:tregan@journalists.org">Tom Regan</a> <em>ONA</em></dd>
 		<dd><a href="mailto:director@journalists.org">Jane McDonnell</a> <em>ONA</em></dd>
 		
 		<dt>Volunteers</dt>
 		<dd><a href="mailto:ona12volunteers@journalists.org">Laura Cochran</a> <em>USA&nbsp;TODAY</em></dd>
+		<dd>Casey Newton <em>San Francisco Chronicle</em></dd>
 		
 		<dt>Student Newsroom</dt>
 		<dd><a href="mailto:ona12newsroom@journalists.org">Curt Chandler</a> <em>Penn State</em></dd>
@@ -57,6 +69,8 @@
 		<dt>Website</dt>
 		<dd>Daniel Bachhuber <em>Automattic</em></dd>
 	</dl>
+			</div>
+			
 			</div>
 			
 			<div class="footer-content grid_3">

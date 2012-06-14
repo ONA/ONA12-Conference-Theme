@@ -34,7 +34,7 @@ Template Name: Posts
 
 <div id="home-content" class="content-row container_12">
 
-	<div id="posts-container" class="grid_8">
+	<div id="posts-container" class="grid_9">
 	<div id="posts" class="box">
 	
 	<?php rewind_posts(); ?>

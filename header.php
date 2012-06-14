@@ -125,7 +125,7 @@
 			<a href="<?php bloginfo('url'); ?>"><img src="<?php bloginfo('stylesheet_directory');  ?>/img/ona12-300px-t.png" class="header-logo" /></a>
 			</div>
 			
-			<div id="header-text" class="header-content grid_8 push_1">
+			<div id="header-text" class="header-content grid_9">
 			<h2><a href="<?php bloginfo('url'); ?>">The 2012 Online News Association<br />Conference & Awards Banquet</a></h2>
 			<h3>Sept. 20-22, Hyatt Regency San Francisco</h3>
 			</div><!-- #header-text -->
