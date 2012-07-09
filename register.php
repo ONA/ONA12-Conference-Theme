@@ -8,26 +8,28 @@ get_header(); ?>
 <div id="register" class="container_12">
 
 		<div id="register-1" class="grid_4">
-		<h4>Career&nbsp;Summit and Job&nbsp;Fair</h4>
+		<h4>Career&nbsp;Summit & Job&nbsp;Fair</h4>
 		<p>A full day of career-oriented sessions plus a job fair with media companies looking to hire.</p>
-		<p>Registration opens soon.</p>
-		<p>Interested in recruiting? <a href="https://members.journalists.org/node/145">Register here.</a></p>
+
+<p class="register-button"><a href="http://ona12.journalists.org/register/career-summit-job-fair/">Register &rsaquo;</a></p>
+
 		</div><!-- #register-1 -->
 		
 		<div id="register-3" class="grid_4">
 		<h3>ONA12 General Pass</h3>
-		<p class="prices">Members: $399<br />Non-Members: $699<br />Student Members: $150</p>
-		<p>Prices through June 20.<br />See below for details.</p>
+		<p class="prices">Members: $499<br />Non-Members: $799<br />Student Members: $150</p>
+		<p>Prices through July 31.<br />See below for details.</p>
 		
-		<p class="register-button"><a href="http://members.journalists.org/node/128">Register <img src="<?php bloginfo('stylesheet_directory'); ?>/img/button-jump.png" /></a></p>
+		<p class="register-button"><a href="http://ona12.journalists.org/registration/general-pass">Register &rsaquo;</a></p>
 
-		<p class="register-button"><a href="https://members.journalists.org/membership">Become a Member <img src="<?php bloginfo('stylesheet_directory'); ?>/img/button-jump.png" /></a></p>
+		<p class="register-button"><a href="https://members.journalists.org/membership">Become a Member &rsaquo;</a></p>
 		</div><!-- #register-3 -->
 		
 		<div id="register-5" class="grid_4">
-		<h4>Workshop Pass</h4>
-		<p>One pass for all the hands-on workshops on Thursday at the conference hotel.</p>
-		<p>Registration opens soon.</p>
+		<h4>Workshop Passes</h4>
+		<p>Individual passes for all the hands-on workshops on Thursday.</p>
+		
+		<p class="register-button"><a href="http://ona12.journalists.org/register/workshops/">Register &rsaquo;</a></p>
 		</div><!-- #register-5 -->
 
 </div><!-- #register -->

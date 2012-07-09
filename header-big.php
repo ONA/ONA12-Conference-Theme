@@ -143,9 +143,12 @@
 	<?php endwhile; ?>
 
 	<?php endif; ?>
-			
-		<div class="grid_3 alpha header-button push_1"><a href="register">Register <img src="<?php bloginfo('stylesheet_directory'); ?>/img/button-jump.png" /></a></div>
-		<div class="grid_3 omega header-button push_1"><a href="https://resweb.passkey.com/Resweb.do?mode=welcome_ei_new&eventID=8247714">Book a Room <img src="<?php bloginfo('stylesheet_directory'); ?>/img/button-jump.png" /></a></div>
+
+		<div class="grid_6 alpha header-button push_1">
+			<a href="register">Register &rsaquo;</a>
+			<a href="http://ona2012.sched.org/">Schedule &rsaquo;</a>
+			<a href="http://ona12.journalists.org/2012/06/25/recommended-overflow-hotels-for-ona12/">Book a Room &rsaquo;</a>
+		</div>
 			
 		</header>
 		</div><!-- #header-container -->

@@ -335,7 +335,7 @@ p {
 }
 
 header {
-	padding:20px 0 40px 0;
+	padding:20px 0 20px 0;
 }
 
 header h1, header h2, header h3, header h4 {
@@ -366,11 +366,12 @@ header hr {
 
 header .header-button {
 	text-align:center;
-	margin:40px 0 0 0;
+	margin:40px 0;
 	line-height:18px;
 }
 
 header .header-button a:link, header .header-button a:visited, header .header-button a:hover, header .header-button a:active {
+	margin:0 10px;
 	color:#fff;
 	padding:10px 10px;
 	font-size:16px;
@@ -959,6 +960,7 @@ header .header-button a img {
 }
 
 #register .register-button a:link, #register .register-button a:visited, #register .register-button a:hover, #register .register-button a:active {
+	font-family:"Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
 	color:#fff;
 	padding:10px 10px;
 	font-size:16px;

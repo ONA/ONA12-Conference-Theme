@@ -25,18 +25,22 @@ Template Name: Home
 	<?php endforeach; ?>
 	</div><!-- #featured-posts -->
 
-<!--	<div id="sponsors-top" class="content-row container_12">
+<!-- <div id="sponsors-top" class="content-row container_12">
 		<div class="grid_12">
 		<h4>Sponsors</h4>
+
+<img src="img/">
 
 			<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('Sponsors (Top)')) : else : ?>
 	
 			<?php endif; ?>
+
 		
 		<p class="separator"><a href="" class="jumptext">See all attending sponsors and exhibitors &rsaquo;</a></p>
 		
+-->
 		</div>
-	</div> -->
+	</div>
 
 </div><!-- #content-featured -->
 
