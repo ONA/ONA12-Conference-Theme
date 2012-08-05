@@ -1,11 +1,26 @@
 <?php
 
+require_once( dirname( __FILE__ ) . '/php/class-session.php' );
+
 class ONA12 {
+
+	var $session;
 
 	function __construct() {
 
+		$this->session = new ONA12_Session();
+
+		add_action( 'after_setup_theme', array( $this, 'action_after_setup_theme' ) );
 		add_action( 'init', array( $this, 'action_init' ) );
 
+	}
+
+	/**
+	 * Theme customization options
+	 */
+	function action_after_setup_theme() {
+
+		add_theme_support( 'post-thumbnails' );
 	}
 
 	/**
