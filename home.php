@@ -9,7 +9,7 @@ Template Name: Home
 <div id="content-featured" class="container_12">
 	
 	<div id="featured-posts">
-	<?php $posts = z_get_posts_in_zone('featuredposts'); ?>
+	<?php $posts = ( function_exists( 'z_get_posts_in_zone' ) ) ? z_get_posts_in_zone('featuredposts') : array(); ?>
 	<?php foreach( $posts as $post ) :
 				setup_postdata($post);
 				$more = 0;
