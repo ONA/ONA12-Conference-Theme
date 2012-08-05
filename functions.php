@@ -27,7 +27,7 @@ function create_post_types() {
 				'editor',
 				'revisions'
 				),
-			'taxonomies' => 'slidetype',
+			'taxonomies' => array( 'slidetype' ),
 		)
 	);
 }
