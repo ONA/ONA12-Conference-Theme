@@ -11,24 +11,23 @@ add_action( 'init', 'register_my_menus' );
 add_action( 'init', 'create_post_types' );
 
 function create_post_types() {
-		register_post_type( 'frontpageslide',
+	
+	register_post_type( 'frontpageslide',
 		array(
+			'label' => __( 'Front Page Slides' ),
 			'labels' => array(
 				'name' => __( 'Front Page Slides' ),
 				'singular_name' => __( 'Front Page Slide' )
 			),
-		'public' => true,
-	    'publicly_queryable' => true,
-    	'show_ui' => true, 
-	    'show_in_menu' => true, 
-    	'query_var' => true,
-	    'rewrite' => true,
-    	'capability_type' => 'post',
-	    'has_archive' => true, 
-    	'hierarchical' => false,
-	    'menu_position' => null,
-    	'supports' => array('title','editor','revisions'),
-	    'taxonomies' => 'slidetype'
+			'public' => true,
+			'rewrite' => false,
+			'has_archive' => true, 
+			'supports' => array(
+				'title',
+				'editor',
+				'revisions'
+				),
+			'taxonomies' => 'slidetype',
 		)
 	);
 }
