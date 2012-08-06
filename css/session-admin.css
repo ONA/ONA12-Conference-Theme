@@ -1,0 +1,110 @@
+#ona12-session-information .float-left { 
+	float: left;
+}
+
+#ona12-session-information .float-right { 
+	float: right;
+}
+
+#ona12-session-information .clear-both {
+	clear: both;
+}
+
+#ona12-session-information .display-none {
+	display: none !important;
+}
+
+#ona12-session-information .inner {
+	padding-top: 5px;
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-bottom: 5px;
+}
+
+#ona12-session-information .inner h4 {
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-bottom: 15px;
+}
+
+#ona12-session-information .inner .line-item,
+#ona12-session-date-time-location .inner .line-item {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+
+#ona12-session-information .inner .line-item label {
+	padding-bottom: 5px;
+}
+
+#ona12-session-date-time-location .inner .line-item .pick-date {
+	padding-right: 10px;
+}
+
+#ona12-session-date-time-location .inner .line-item .pick-date label {
+	display: block;
+	padding-top: 5px;
+	width: 35px;
+	float: left;
+}
+
+#ona12-session-date-time-location .inner .line-item .pick-date input {
+	margin-left: 20px;
+}
+
+#ona12-session-information .inner .required,
+#ona12-session-date-time-location .inner .required {
+	color: #FF0000;
+}
+
+#ona12-session-information textarea {
+	width: 100%;
+}
+
+#ona12-session-information .option-item {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+#ona12-session-information .option-item .term-selector {
+	float: left;
+}
+
+#ona12-session-information .selectlist-list {
+	list-style: none;
+	margin-top: 0;
+	margin-bottom: 0;
+	padding: 0;
+	margin-left: 200px	;
+}
+
+#ona12-session-information .selectlist-item {
+	border-left: solid 1px #eee;
+	border-top: solid 1px #eee;
+	border-right: solid 2px #ccc;
+	border-bottom: solid 2px #ccc;
+	cursor: pointer;
+	padding-left: 5px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-right: 2px;
+	margin-right: 10px;
+	display: inline-block !important;
+	background-color: #F2F2F2;
+	text-shadow: 0 1px 0 #FFFFFF;
+}
+
+#ona12-session-information .selectlist-item:hover {
+	background-color: #FF0000;
+	background-image: none;
+	color: #FFFFFF;
+	text-shadow: none;
+}
+
+/* css for timepicker */
+.ui-timepicker-div .ui-widget-header{ margin-bottom: 8px; }
+.ui-timepicker-div dl{ text-align: left; }
+.ui-timepicker-div dl dt{ height: 25px; }
+.ui-timepicker-div dl dd{ margin: -25px 0 10px 65px; }
+.ui-timepicker-div td { font-size: 90%; }

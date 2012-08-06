@@ -12,7 +12,11 @@ class ONA12_Session {
 	 */
 	function __construct() {
 
+		// Register our custom post type and taxonomies
 		add_action( 'init', array( $this, 'action_init' ) );
+
+		// Enqueue necessary resources
+		add_action( 'admin_enqueue_scripts', array( $this, 'action_admin_enqueue' ) );
 
 		// Set up metaboxes and related actions
 		add_action( 'admin_menu', array( $this, 'action_admin_menu' ) );
@@ -104,6 +108,19 @@ class ONA12_Session {
 		);
 		register_taxonomy( 'ona12_session_types', array( self::post_type ), $args );
 
+	}
+
+	/**
+	 * Register necessary scripts and styles
+	 */
+	function action_admin_enqueue() {
+		global $pagenow;
+
+		if ( !isset( $_GET['post_type'] ) || self::post_type != $_GET['post_type'] || !in_array( $pagenow, array( 'post.php', 'post-new.php' ) ) )
+			return;
+
+		wp_enqueue_style( 'ona12-session-admin', get_stylesheet_directory_uri() . '/css/session-admin.css' );
+		
 	}
 
 	/**
