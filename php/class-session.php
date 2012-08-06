@@ -116,10 +116,18 @@ class ONA12_Session {
 	function action_admin_enqueue() {
 		global $pagenow;
 
-		if ( !isset( $_GET['post_type'] ) || self::post_type != $_GET['post_type'] || !in_array( $pagenow, array( 'post.php', 'post-new.php' ) ) )
+		if ( !in_array( $pagenow, array( 'post.php', 'post-new.php' ) ) )
 			return;
 
-		wp_enqueue_style( 'ona12-session-admin', get_stylesheet_directory_uri() . '/css/session-admin.css' );
+		// Scripts
+		wp_enqueue_script( 'jquery-selectlist', get_stylesheet_directory_uri() . '/js/jquery.selectlist.js', array( 'jquery' ) );
+		wp_enqueue_script( 'ona12-jquery-ui-custom-js', get_stylesheet_directory_uri() . '/js/jquery-ui-1.8.13.custom.min.js', array( 'jquery', 'jquery-ui-core' ) );
+		wp_enqueue_script( 'ona12-jquery-timepicker-js', get_stylesheet_directory_uri() . '/js/jquery-ui-timepicker.0.9.5.js', array( 'jquery', 'jquery-ui-core', 'ona12-jquery-ui-custom-js' ) );
+		wp_enqueue_script( 'ona12-session-admin-js', get_stylesheet_directory_uri() . '/js/session-admin.js', array( 'jquery', 'jquery-selectlist', 'ona12-jquery-timepicker-js' ) );
+
+		// Styles
+		wp_enqueue_style( 'ona12-session-admin-css', get_stylesheet_directory_uri() . '/css/session-admin.css' );
+		wp_enqueue_style( 'ona12-jquery-ui-custom-css', get_stylesheet_directory_uri() . '/css/jquery-ui-1.8.13.custom.css' );
 		
 	}
 
@@ -268,10 +276,10 @@ class ONA12_Session {
 		$end_timestamp = strtotime( $_POST['ona12-end'] );
 		update_post_meta( $post_id, '_ona12_end_timestamp', $end_timestamp );
 		
-		$location = (int)$_POST['ona12-location'];
+		$location = (isset( $_POST['ona12-location'] ) ) ? (int)$_POST['ona12-location'] : '';
 		wp_set_object_terms( $post_id, $location, 'ona12_locations' );
 		
-		$session_type = (int)$_POST['ona12-session-type'];
+		$session_type = (isset( $_POST['ona12-session-type'] ) ) ? (int)$_POST['ona12-session-type'] : '';
 		wp_set_object_terms( $post_id, $session_type, 'ona12_session_types' );		
 	}
 
