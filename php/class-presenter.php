@@ -19,6 +19,7 @@ class ONA12_Presenter {
 		add_action( 'admin_enqueue_scripts', array( $this, 'action_admin_enqueue' ) );
 
 		// Set up metaboxes and related actions
+		add_filter( 'enter_title_here', array( $this, 'filter_enter_title_here' ) );
 		add_action( 'add_meta_boxes', array( $this, 'action_add_meta_boxes' ) );
 		add_action( 'save_post', array( $this, 'action_save_post' ), 10, 2 );
 
@@ -110,6 +111,19 @@ class ONA12_Presenter {
 				break;
 		}
 
+	}
+
+	/**
+	 * Filter the 'Enter title here' text when you create a new presenter
+	 */
+	function filter_enter_title_here( $text ) {
+
+		global $pagenow;
+
+		if ( !in_array( $pagenow, array( 'post.php', 'post-new.php', 'edit.php' ) ) || self::post_type != get_post_type() )
+			return $text;
+
+		return 'Enter full name here';
 	}
 
 	/**
