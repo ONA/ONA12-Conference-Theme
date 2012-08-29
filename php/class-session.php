@@ -190,9 +190,17 @@ class ONA12_Session {
 				echo get_the_excerpt( $post_id );
 				break;
 			case 'session_type':
-				$session_type_tax = wp_get_object_terms( $post_id, 'ona12_session_types', array( 'fields' => 'names' ) );
-				$session_type = ( !empty( $session_type_tax ) ) ? $session_type_tax[0] : '<em>None</em>';
-				echo $session_type;
+				$session_type_tax = wp_get_object_terms( $post_id, 'ona12_session_types' );
+				if ( empty( $session_type_tax ) ) {
+					echo '<em>None</em>';
+				} else {
+					$args = array(
+							'post_type' => self::post_type,
+							'ona12_session_types' => $session_type_tax[0]->slug,
+						);
+					$filter_link = add_query_arg( $args, admin_url( 'edit.php' ) );
+					echo '<a href="' . esc_url( $filter_link ) . '">' . esc_html( $session_type_tax[0]->name ) . '</a>';
+				}
 				break;
 		}
 
