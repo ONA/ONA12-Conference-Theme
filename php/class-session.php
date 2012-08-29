@@ -19,8 +19,12 @@ class ONA12_Session {
 		add_action( 'admin_enqueue_scripts', array( $this, 'action_admin_enqueue' ) );
 
 		// Set up metaboxes and related actions
+		add_filter( 'manage_edit-ona12_session_sortable_columns', array( $this, 'manage_sortable_columns' ) );
 		add_action( 'admin_menu', array( $this, 'action_admin_menu' ) );
 		add_action( 'save_post', array( $this, 'action_save_post' ), 10, 2 );
+
+		// Filter posts on the manage posts view by start time by default
+		add_action( 'pre_get_posts', array( $this, 'action_pre_get_posts' ) );
 
 	}
 
@@ -132,6 +136,27 @@ class ONA12_Session {
 		wp_enqueue_style( 'ona12-session-admin-css', get_stylesheet_directory_uri() . '/css/session-admin.css' );
 		wp_enqueue_style( 'ona12-jquery-ui-custom-css', get_stylesheet_directory_uri() . '/css/jquery-ui-1.8.13.custom.css' );
 		
+	}
+
+	/**
+	 * By default, order the sessions by start time
+	 */
+	function action_pre_get_posts( $query ) {
+
+		if ( !is_admin() || !$query->is_main_query() || self::post_type != $query->get( 'post_type' ) )
+			return;
+
+		$order = ( 'asc' == $query->get('order') ) ? 'desc' : 'asc';
+		$query->set( 'order', $order );
+		$query->set( 'meta_key', '_ona12_start_timestamp' );
+		$query->set( 'orderby', 'meta_value_num' );
+	}
+
+	/**
+	 * For now, no columns on the list table are sortable
+	 */
+	function manage_sortable_columns() {
+		return array( 'time' => 'time' );
 	}
 
 	/**
