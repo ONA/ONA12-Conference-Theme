@@ -79,8 +79,6 @@ class ONA12_Presenter {
 
 	/**
 	 * Unset the default columns and add our own
-	 *
-	 * @todo add a 'sessions' column
 	 */
 	function filter_manage_posts_columns( $default ) {
 
@@ -88,6 +86,7 @@ class ONA12_Presenter {
 				'gravatar'             => __( 'Gravatar', 'ona12' ),
 				'title'                => __( 'Name', 'ona12' ),
 				'affiliation'          => __( 'Affiliation', 'ona12' ),
+				'sessions'             => __( 'Session(s)', 'ona12' ),
 			);
 		return $custom_columns;
 	}
@@ -104,10 +103,18 @@ class ONA12_Presenter {
 				break;
 			case 'affiliation':
 				$affiliation = array(
-					get_post_meta( $post_id, '_ona12_presenter_title', true ),
+					'<strong>' . get_post_meta( $post_id, '_ona12_presenter_title', true ) . '</em>',
 					get_post_meta( $post_id, '_ona12_presenter_organization', true ),
 				);
 				echo implode( ', ', $affiliation );
+				break;
+			case 'sessions':
+				$sessions = wp_list_pluck( p2p_type( 'sessions_to_presenters' )->get_connected( $post_id )->posts, 'post_title' );
+				if ( !empty( $sessions ) ) {
+					echo implode( '<br />', $sessions );
+				} else {
+					echo '<em>None</em>';
+				}
 				break;
 		}
 
@@ -132,10 +139,6 @@ class ONA12_Presenter {
 	function action_add_meta_boxes() {
 		
 		add_meta_box( 'ona12-presenter-information', 'Presenter Details', array( $this, 'presenter_details_meta_box' ), self::post_type, 'normal', 'high');
-		
-		if ( function_exists( 'p2p_register_connection_type' ) )
-			add_meta_box( 'ona12-presenter-associated-posts', 'Associations', array( $this, 'associated_posts_meta_box' ), self::post_type, 'side', 'default');		
-		
 	}
 
 	/**

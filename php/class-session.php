@@ -162,7 +162,6 @@ class ONA12_Session {
 	/**
 	 * Unset the default columns and add our own
 	 *
-	 * @todo add a presenter column
 	 * @todo add a location column
 	 */
 	function filter_manage_posts_columns( $default ) {
@@ -170,6 +169,7 @@ class ONA12_Session {
 		$custom_columns = array(
 				'title'                => __( 'Title', 'ona12' ),
 				'time'                 => __( 'Time', 'ona12' ),
+				'presenters'           => __( 'Presenters', 'ona12' ),
 				'short_description'    => __( 'Short Description', 'ona12' ),
 				'session_type'         => __( 'Session Type', 'ona12' ),
 			);
@@ -185,6 +185,14 @@ class ONA12_Session {
 			case 'time':
 				$start_timestamp = get_post_meta( $post_id, '_ona12_start_timestamp', true );
 				echo date( 'l, g:i a', $start_timestamp );
+				break;
+			case 'presenters':
+				$presenters = wp_list_pluck( p2p_type( 'sessions_to_presenters' )->get_connected( $post_id )->posts, 'post_title' );
+				if ( !empty( $presenters ) ) {
+					echo implode( ', ', $presenters );
+				} else {
+					echo '<em>None</em>';
+				}
 				break;
 			case 'short_description':
 				echo get_the_excerpt( $post_id );

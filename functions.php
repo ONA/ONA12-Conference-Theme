@@ -71,6 +71,16 @@ class ONA12 {
 			'before_title'  => '<h4>',
 			'after_title'   => '</h4>'
 		));
+
+		if ( function_exists( 'p2p_register_connection_type' ) ) {
+			// Sessions should be able to have speakers
+			p2p_register_connection_type( array(
+				'name'      => 'sessions_to_presenters',
+				'from'      => ONA12_Session::post_type,
+				'to'        => ONA12_Presenter::post_type,
+				'can_create_post'  => false,
+			));
+		}
 	}
 }
 
