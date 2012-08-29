@@ -1,6 +1,7 @@
 <?php
 
 require_once( dirname( __FILE__ ) . '/php/class-session.php' );
+require_once( dirname( __FILE__ ) . '/php/class-presenter.php' );
 
 class ONA12 {
 
@@ -9,6 +10,7 @@ class ONA12 {
 	function __construct() {
 
 		$this->session = new ONA12_Session();
+		$this->presenter = new ONA12_Presenter;
 
 		add_action( 'after_setup_theme', array( $this, 'action_after_setup_theme' ) );
 		add_action( 'init', array( $this, 'action_init' ) );
