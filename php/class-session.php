@@ -119,7 +119,7 @@ class ONA12_Session {
 	function action_admin_enqueue() {
 		global $pagenow;
 
-		if ( !in_array( $pagenow, array( 'post.php', 'post-new.php' ) ) )
+		if ( !in_array( $pagenow, array( 'post.php', 'post-new.php' ) ) || self::post_type != get_post_type() )
 			return;
 
 		// Scripts
