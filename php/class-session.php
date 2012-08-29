@@ -108,6 +108,9 @@ class ONA12_Session {
 		);
 		register_taxonomy( 'ona12_session_types', array( self::post_type ), $args );
 
+		add_filter( 'manage_' . self::post_type . '_posts_columns', array( $this, 'filter_manage_posts_columns' ) );
+		add_action( 'manage_posts_custom_column', array( $this, 'action_manage_posts_custom_column' ), 10, 2 );
+
 	}
 
 	/**
@@ -129,6 +132,45 @@ class ONA12_Session {
 		wp_enqueue_style( 'ona12-session-admin-css', get_stylesheet_directory_uri() . '/css/session-admin.css' );
 		wp_enqueue_style( 'ona12-jquery-ui-custom-css', get_stylesheet_directory_uri() . '/css/jquery-ui-1.8.13.custom.css' );
 		
+	}
+
+	/**
+	 * Unset the default columns and add our own
+	 *
+	 * @todo add a presenter column
+	 * @todo add a location column
+	 */
+	function filter_manage_posts_columns( $default ) {
+
+		$custom_columns = array(
+				'title'                => __( 'Title', 'ona12' ),
+				'time'                 => __( 'Time', 'ona12' ),
+				'short_description'    => __( 'Short Description', 'ona12' ),
+				'session_type'         => __( 'Session Type', 'ona12' ),
+			);
+		return $custom_columns;
+	}
+
+	/**
+	 * Add our custom details into the columns we've created
+	 */
+	function action_manage_posts_custom_column( $column_name, $post_id ) {
+
+		switch( $column_name ) {
+			case 'time':
+				$start_timestamp = get_post_meta( $post_id, '_ona12_start_timestamp', true );
+				echo date( 'l, g:i a', $start_timestamp );
+				break;
+			case 'short_description':
+				echo get_the_excerpt( $post_id );
+				break;
+			case 'session_type':
+				$session_type_tax = wp_get_object_terms( $post_id, 'ona12_session_types', array( 'fields' => 'names' ) );
+				$session_type = ( !empty( $session_type_tax ) ) ? $session_type_tax[0] : '<em>None</em>';
+				echo $session_type;
+				break;
+		}
+
 	}
 
 	/**
