@@ -73,6 +73,9 @@ class ONA12_Presenter {
 		add_action( 'manage_posts_custom_column', array( $this, 'action_manage_posts_custom_column' ), 10, 2 );
 		add_filter( 'post_row_actions', array( $this, 'filter_post_row_actions' ), 10, 2 );
 
+		// Sort presenters by name
+		add_action( 'pre_get_posts', array( $this, 'action_pre_get_posts' ) );
+
 		// Enqueue necessary resources
 		add_action( 'admin_enqueue_scripts', array( $this, 'action_admin_enqueue' ) );
 
@@ -120,6 +123,29 @@ class ONA12_Presenter {
 	function filter_post_row_actions( $actions, $post ) {
 		unset( $actions['inline hide-if-no-js'] );
 		return $actions;
+	}
+
+	/**
+	 * Sort presenters by name by default
+	 */
+	function action_pre_get_posts( $query ) {
+		global $pagenow;
+
+		if ( 'edit.php' != $pagenow || !$query->is_main_query() )
+			return;
+
+		// Order posts by title if there's no orderby set
+		if ( !$query->get( 'orderby' ) ) {
+			$sort_order = array(
+					'orderby'       => 'title',
+					'order'         => 'asc',
+				);
+			foreach( $sort_order as $key => $value ) {
+				$query->set( $key, $value );
+				$_GET[$key] = $value;
+			}
+		}
+
 	}
 
 	/**
