@@ -167,6 +167,7 @@ class ONA12_Session {
 	function filter_manage_posts_columns( $default ) {
 
 		$custom_columns = array(
+				'cb'                   => $default['cb'],
 				'title'                => __( 'Title', 'ona12' ),
 				'time'                 => __( 'Time', 'ona12' ),
 				'presenters'           => __( 'Presenters', 'ona12' ),
