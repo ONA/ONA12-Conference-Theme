@@ -3,6 +3,9 @@
 require_once( dirname( __FILE__ ) . '/php/class-session.php' );
 require_once( dirname( __FILE__ ) . '/php/class-presenter.php' );
 
+if ( defined( 'WP_CLI' ) && WP_CLI )
+	require_once( dirname( __FILE__ ) . '/php/class-wp-cli.php' );
+
 class ONA12 {
 
 	var $session;
