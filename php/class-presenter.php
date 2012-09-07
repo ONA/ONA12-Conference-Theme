@@ -14,9 +14,8 @@ class ONA12_Presenter {
 
 		// Register our custom post type and taxonomies
 		add_action( 'init', array( $this, 'action_init' ) );
-
-		// Enqueue necessary resources
-		add_action( 'admin_enqueue_scripts', array( $this, 'action_admin_enqueue' ) );
+		// Do modifications to the admin
+		add_action( 'admin_init', array( $this, 'action_admin_init' ) );
 
 		// Set up metaboxes and related actions
 		add_filter( 'enter_title_here', array( $this, 'filter_enter_title_here' ) );
@@ -59,19 +58,43 @@ class ONA12_Presenter {
 			);
 		register_post_type( self::post_type, $args );
 
+	}
+
+	/**
+	 * Modify the admin
+	 */
+	function action_admin_init() {
+
+		if ( ! $this->is_edit_screen() )
+			return;
+
+		// Modify the manage presenters UI
 		add_filter( 'manage_' . self::post_type . '_posts_columns', array( $this, 'filter_manage_posts_columns' ) );
 		add_action( 'manage_posts_custom_column', array( $this, 'action_manage_posts_custom_column' ), 10, 2 );
+		add_filter( 'post_row_actions', array( $this, 'filter_post_row_actions' ), 10, 2 );
 
+		// Enqueue necessary resources
+		add_action( 'admin_enqueue_scripts', array( $this, 'action_admin_enqueue' ) );
+
+	}
+
+	/**
+	 * Whether or not this an edit screen associated with the presenters UI
+	 */
+	function is_edit_screen() {
+		global $pagenow;
+
+		if ( !in_array( $pagenow, array( 'post.php', 'post-new.php', 'edit.php' ) ) 
+			|| ( ( isset( $_GET['post_type'] ) && self::post_type != $_GET['post_type'] ) && get_post_type() != self::post_type ) )
+			return false;
+
+		return true;
 	}
 
 	/**
 	 * Register necessary scripts and styles
 	 */
 	function action_admin_enqueue() {
-		global $pagenow;
-
-		if ( !in_array( $pagenow, array( 'post.php', 'post-new.php', 'edit.php' ) ) || self::post_type != get_post_type() )
-			return;
 
 		wp_enqueue_style( 'ona12-presenter-admin-css', get_stylesheet_directory_uri() . '/css/presenter-admin.css' );
 
@@ -89,6 +112,14 @@ class ONA12_Presenter {
 				'sessions'             => __( 'Session(s)', 'ona12' ),
 			);
 		return $custom_columns;
+	}
+
+	/**
+	 * Remove 'Quick Edit' because it's not really relevant
+	 */
+	function filter_post_row_actions( $actions, $post ) {
+		unset( $actions['inline hide-if-no-js'] );
+		return $actions;
 	}
 
 	/**
