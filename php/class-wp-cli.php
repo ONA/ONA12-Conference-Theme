@@ -16,6 +16,7 @@ class ONA12_WPCLI extends WP_CLI_Command {
 usage: wp ona12 <parameters>
 Possible subcommands:
 					import_presenters           Import presenters into a site
+					import_sessions             Import sessions into a site
 EOB
 		);
 	}
@@ -88,6 +89,89 @@ EOB
 		WP_CLI::success( "All done! Created {$count_created} presenters" );
 
 	}
+
+	/**
+	 * Import sessions into a site
+	 */
+	public function import_sessions( $args, $assoc_args ) {
+
+		$defaults = array(
+				'csv'                     => '',
+			);
+
+		$this->args = wp_parse_args( $assoc_args, $defaults );
+
+		$handle = fopen( $this->args['csv'], 'r' );
+		$c = 0;
+
+		$sessions = array();
+		while ( false !== ( $data = fgetcsv( $handle ) ) ) {
+			$c++;
+			// Set the headers on the file
+			if ( 1 == $c ) {
+				$headers = $data;
+				continue;
+			}
+
+			$session = array();
+			foreach( $headers as $index => $key ) {
+				$session[$key] = $data[$index];
+			}
+			$sessions[] = $session;
+
+		}
+
+		$count_created = 0;
+		foreach( $sessions as $session ) {
+
+			$session_title = $session['Session Name'];
+			// Skip the session if it already exists
+			if ( $post = get_page_by_title( $session_title, OBJECT, ONA12_Session::post_type ) ) {
+				WP_CLI::line( "Skipping {$session_title}, already exists as #{$post->ID}" );
+				continue;
+			}
+
+			$post = array(
+					'post_title'       => $session_title,
+					'post_content'     => wp_filter_post_kses( $session['Session Description'] ),
+					'post_type'        => ONA12_Session::post_type,
+				);
+			$post['post_status'] = ( 'Y' == $session['Visible on Site?'] ) ? 'publish' : 'draft';
+			$id = wp_insert_post( $post );
+
+			$start_timestamp = strtotime( $session['Start Date & Time'] );
+			update_post_meta( $id, '_ona12_start_timestamp', $start_timestamp );
+			
+			$end_timestamp = strtotime( $session['End Date & Time'] );
+			update_post_meta( $id, '_ona12_end_timestamp', $end_timestamp );
+			
+			$location = sanitize_text_field( $session['Room or Building Name'] );
+			if ( ! term_exists( $location, 'ona12_locations' ) )
+				$term = (object)wp_insert_term( $location, 'ona12_locations' );
+			else
+				$term = get_term_by( 'name', $location, 'ona12_locations' );
+			if ( ! is_wp_error( $term ) )
+				wp_set_post_terms( $id, $term->term_id, 'ona12_locations' );
+			
+			$session_type = sanitize_text_field( $session['Session Sub-type'] );
+			// Some sessions don't have sub-types, in which case we want to use the type
+			if ( empty( $session_type ) )
+				$session_type = sanitize_text_field( $session['Session Type'] );
+			if ( ! term_exists( $session_type, 'ona12_session_types' ) )
+				$term = (object)wp_insert_term( $session_type, 'ona12_session_types' );
+			else
+				$term = get_term_by( 'name', $session_type, 'ona12_session_types' );
+			if ( ! is_wp_error( $term ) )
+				wp_set_post_terms( $id, $term->term_id, 'ona12_session_types' );
+
+			WP_CLI::line( "Created {$session_title} as post #{$id}" );
+			$count_created++;
+		}
+
+		WP_CLI::success( "All done! Created {$count_created} sessions" );
+
+	}
+
 
 
 }
