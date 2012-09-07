@@ -23,6 +23,10 @@ class ONA12 {
 	function action_after_setup_theme() {
 
 		add_theme_support( 'post-thumbnails' );
+
+		// Support for liveblogging on sessions if liveblog exists
+		if ( class_exists( 'WPCOM_Liveblog' ) )
+			add_post_type_support( ONA12_Session::post_type, WPCOM_Liveblog::key );
 	}
 
 	/**
