@@ -31,7 +31,17 @@
 			<h2 class="title"><a href="<?php the_permalink(); ?>" class="post-title"><?php the_title(); ?></a></h2>
 
 			<div class="session-details">
-				<?php echo date( 'l, g:i a', (int)get_post_meta( get_the_id(), '_ona12_start_timestamp', true ) ); ?>
+				<?php
+					$start_timestamp = (int)get_post_meta( get_the_id(), '_ona12_start_timestamp', true );
+					$location = wp_get_object_terms( $post->ID, 'ona12_locations', array( 'fields' => 'names' ) );
+					$location = ( !empty( $location ) ) ? $location[0] : '';
+					$session_details = array(
+							date( 'l', $start_timestamp ),
+							date( 'g:i a', $start_timestamp ),
+							$location,
+						);
+				echo '<ul><li>' . implode( '</li><li>', $session_details ) . '</li></ul>';
+				?>
 			</div>
 			
 			<div class="entry">

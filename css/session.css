@@ -11,6 +11,25 @@
 	margin-bottom: 10px;
 }
 
+.single-ona12_session .session-details {
+	margin-top: 15px;
+}
+
+.single-ona12_session .session-details ul li {
+	list-style-type: none;
+	display: inline;
+	border-left: 1px solid #888;
+	padding-left: 15px;
+	margin-left: 15px;
+	color: #444;
+}
+
+.single-ona12_session .session-details ul li:first-child {
+	border-left: none;
+	margin-left: 0;
+	padding-left: 0;
+}
+
 .single-ona12_session h2 {
-	font-size: 24px;
+	font-size: 30px;
 }
