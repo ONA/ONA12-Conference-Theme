@@ -1,0 +1,16 @@
+.single-ona12_session #header {
+	display: none;
+}
+
+.single-ona12_session #session-left-sidebar #sidebar-logo {
+	padding-top: 10px;
+}
+
+.single-ona12_session .session-navigation {
+	font-size: 12px;
+	margin-bottom: 10px;
+}
+
+.single-ona12_session h2 {
+	font-size: 24px;
+}

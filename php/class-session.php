@@ -16,6 +16,7 @@ class ONA12_Session {
 		add_action( 'init', array( $this, 'action_init' ) );
 
 		// Enqueue necessary resources
+		add_action( 'wp_enqueue_scripts', array( $this, 'action_frontend_enqueue' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'action_admin_enqueue' ) );
 
 		// Set up metaboxes and related actions
@@ -115,6 +116,13 @@ class ONA12_Session {
 		add_filter( 'manage_' . self::post_type . '_posts_columns', array( $this, 'filter_manage_posts_columns' ) );
 		add_action( 'manage_posts_custom_column', array( $this, 'action_manage_posts_custom_column' ), 10, 2 );
 
+	}
+
+	/**
+	 * Enqueue frontend scripts
+	 */
+	function action_frontend_enqueue() {
+		wp_enqueue_style( 'ona12-session-css', get_stylesheet_directory_uri() . '/css/session.css' );
 	}
 
 	/**
