@@ -85,7 +85,7 @@ EOB
 			$count_created++;
 		}
 
-		WP_CLI::success( "All done! Created " );
+		WP_CLI::success( "All done! Created {$count_created} presenters" );
 
 	}
 
