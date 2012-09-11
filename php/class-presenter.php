@@ -273,4 +273,38 @@ class ONA12_Presenter {
 		
 	}
 
+	/**
+	 * Get a given field for a presenter
+	 * Can be used within the loop, but not a requirement
+	 */
+	public function get( $field, $post_id = null ) {
+
+		if ( is_null( $post_id ) )
+			$post_id = get_the_ID();
+
+		switch( $field ) {
+			case 'name':
+			case 'full_name':
+				return get_the_title( $post_id );
+			case 'title':
+				return get_post_meta( $post_id, '_ona12_presenter_title', true );
+			case 'organization':
+				return get_post_meta( $post_id, '_ona12_presenter_organization', true );
+			case 'email_address':
+				return get_post_meta( $post_id, '_ona12_presenter_email_address', true );
+			case 'twitter':
+				return get_post_meta( $post_id, '_ona12_presenter_twitter', true );
+		}
+		return false;
+	}
+
+	/**
+	 * Get the avatar for a presenter
+	 */
+	public function get_avatar( $size = 64, $post_id = null ) {
+
+		$email_address = self::get( 'email_address', $post_id );
+		return get_avatar( $email_address, $size );
+	}
+
 }
