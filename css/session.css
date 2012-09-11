@@ -1,9 +1,59 @@
-.single-ona12_session #header {
+.single-ona12_session #header,
+.post-type-archive-ona12_session #header {
 	display: none;
 }
 
-.single-ona12_session #session-left-sidebar #sidebar-logo {
+.single-ona12_session #session-left-sidebar #sidebar-logo
+.post-type-archive-ona12_session #session-left-sidebar #sidebar-logo {
 	padding-top: 10px;
+}
+
+.post-type-archive-ona12_session .session-day h3 {
+	text-transform: uppercase;
+	font-weight: normal;
+	border-top: 1px solid #DDD;
+	padding-top: 10px;
+}
+
+.post-type-archive-ona12_session .session-day h3 a {
+	margin-right: 30px;
+	color: #BBB;
+}
+
+.post-type-archive-ona12_session .session-day h3 a.active {
+	color:#F15822;
+}
+
+.post-type-archive-ona12_session .session-day {
+	clear: left;
+}
+
+.post-type-archive-ona12_session .session-day .session-start-time {
+	float: left;
+	width: 70px;
+	text-transform: uppercase;
+}
+
+.post-type-archive-ona12_session .session-day .session-time-block {
+	border-top: 1px solid #DDD;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.post-type-archive-ona12_session .session-day .session-time-block ul {
+	margin-left: 80px;
+}
+
+.post-type-archive-ona12_session .session-day .session-time-block ul li {
+	float: left;
+	width: 260px;
+	margin-left: 15px;
+	margin-right: 15px;
+}
+
+.post-type-archive-ona12_session .session-day .session-time-block ul li .session-description {
+	font-size: 14px;
+	line-height: 18px;
 }
 
 .single-ona12_session .session-navigation {
