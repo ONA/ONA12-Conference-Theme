@@ -123,6 +123,7 @@ class ONA12_Session {
 	 */
 	function action_frontend_enqueue() {
 		wp_enqueue_style( 'ona12-session-css', get_stylesheet_directory_uri() . '/css/session.css' );
+		wp_enqueue_style( 'ona12-liveblog-css', get_stylesheet_directory_uri() . '/css/liveblog.css' );
 	}
 
 	/**
