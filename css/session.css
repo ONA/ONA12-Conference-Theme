@@ -11,6 +11,45 @@
 	margin-bottom: 10px;
 }
 
+.single-ona12_session .session-presenters {
+	float: left;
+	width: 150px;
+	margin-top: 1.6em;
+	margin-right: 20px;
+}
+
+.single-ona12_session .session-presenters.multiple-presenters {
+	width: 200px;
+}
+
+.single-ona12_session .session-presenters h4 {
+	color: #F15822;
+	text-transform: uppercase;
+}
+
+.single-ona12_session .session-presenters.multiple-presenters li {
+	margin-top: 20px;
+	margin-bottom: 2px;
+}
+
+.single-ona12_session .session-presenters.multiple-presenters li .presenter-avatar {
+	float: left;
+}
+
+.single-ona12_session .session-presenters.multiple-presenters li .presenter-details {
+	margin-left: 60px;
+}
+
+.single-ona12_session .session-presenters li .presenter-details h5 {
+	color: #333;
+	font-weight: normal;
+}
+
+.single-ona12_session .session-presenters li .presenter-affiliation {
+	font-size: 12px;
+	font-style: italic;
+}
+
 .single-ona12_session .session-details {
 	margin-top: 15px;
 }

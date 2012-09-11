@@ -43,6 +43,47 @@
 				echo '<ul><li>' . implode( '</li><li>', $session_details ) . '</li></ul>';
 				?>
 			</div>
+
+			<?php
+				$args = array(
+						'post_type'      => ONA12_Presenter::post_type,
+						'connected_from' => get_the_ID(),
+						'connected_type' => 'sessions_to_presenters',
+					);
+				$presenters = new WP_Query( $args );
+				if ( $presenters->have_posts() ) :
+			?>
+			<?php $count = ( count( $presenters->posts ) > 1 ) ? 'multiple-presenters' : 'single-presenter'; ?>
+			<div class="session-presenters<?php echo ' ' . $count; ?>">
+				<h4><?php echo ( 'multiple-presenters' == $count ) ? 'Presenters' : 'Presenter'; ?></h4>
+				<ul>
+			<?php while( $presenters->have_posts() ): $presenters->the_post(); ?>
+				<li>
+				<?php if ( 'multiple-presenters' == $count ): ?>
+				<div class="presenter-avatar">
+					<?php echo ONA12_Presenter::get_avatar( 48 ); ?>
+				</div>
+				<div class="presenter-details">
+					<h5><?php echo ONA12_Presenter::get( 'name' ); ?></h5>
+					<span class="presenter-affiliation"><?php echo implode( ',<br />', array( ONA12_Presenter::get('title'), ONA12_Presenter::get('organization') ) ); ?></span>
+				</div>
+				<?php else : ?>
+				<div class="presenter-avatar">
+					<?php echo ONA12_Presenter::get_avatar( 128 ); ?>
+				</div>
+				<div class="presenter-details">
+					<h5><?php echo ONA12_Presenter::get( 'name' ); ?></h5>
+					<span class="presenter-affiliation"><?php echo implode( ',<br />', array( ONA12_Presenter::get('title'), ONA12_Presenter::get('organization') ) ); ?></span>
+				</div>
+				<?php endif; ?>
+				</li>
+			<?php endwhile; ?>
+				</ul>
+				<div class="clear-left"></div>
+			</div>
+			<?php
+			wp_reset_postdata();
+			endif; ?>
 			
 			<div class="entry">
 				<?php the_content(); ?>

@@ -141,6 +141,18 @@ button {width: auto; overflow: visible;}
 .clearfix { zoom: 1; }  
 
 
+.clear-left {
+	clear:left;
+}
+
+.clear-right {
+	clear:right;
+}
+
+.clear-both {
+	clear:both;
+}
+
 
 /* Ok, this is where the fun starts.
 -------------------------------------------------------------------------------*/
