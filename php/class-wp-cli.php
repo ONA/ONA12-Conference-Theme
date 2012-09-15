@@ -152,6 +152,9 @@ EOB
 			
 			$end_timestamp = strtotime( $session['End Date & Time'] );
 			update_post_meta( $id, '_ona12_end_timestamp', $end_timestamp );
+
+			$session_slug = trim( strtolower( $session['Shortened Title'] ) );
+			update_post_meta( $id, '_ona12_session_slug', $session_slug );
 			
 			$location = sanitize_text_field( $session['Room or Building Name'] );
 			if ( ! term_exists( $location, 'ona12_locations' ) )
