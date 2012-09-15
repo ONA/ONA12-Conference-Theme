@@ -60,7 +60,7 @@ EOB
 		$count_created = 0;
 		foreach( $presenters as $presenter ) {
 
-			$full_name = $presenter['First Name'] . ' ' . $presenter['Last Name'];
+			$full_name = trim( $presenter['First Name'] ) . ' ' . trim( $presenter['Last Name'] );
 			if ( empty( $full_name ) )
 				continue; 
 
@@ -135,7 +135,7 @@ EOB
 		$count_created = 0;
 		foreach( $sessions as $session ) {
 
-			$session_title = $session['Session Name'];
+			$session_title = trim( $session['Session Name'] );
 			// Skip the session if it already exists
 			if ( $post = get_page_by_title( $session_title, OBJECT, ONA12_Session::post_type ) ) {
 				WP_CLI::line( "Skipping {$session_title}, already exists as #{$post->ID}" );
