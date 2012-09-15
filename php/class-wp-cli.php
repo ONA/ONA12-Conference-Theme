@@ -16,7 +16,10 @@ class ONA12_WPCLI extends WP_CLI_Command {
 usage: wp ona12 <parameters>
 Possible subcommands:
 					import_presenters           Import presenters into a site
+					--csv=<file>                Where the data is stored
 					import_sessions             Import sessions into a site
+					--csv=<file>                Where the data is stored
+					map_presenters_to_sessions  Create relationships between presenters and sessions
 EOB
 		);
 	}
@@ -180,6 +183,53 @@ EOB
 		}
 
 		WP_CLI::success( "All done! Created {$count_created} sessions" );
+
+	}
+
+	/**
+	 * Add presenters to sessions based on session slug
+	 */
+	public function map_presenters_to_sessions( $args, $assoc_args ) {
+
+		$presenter_args = array(
+				'post_type'              => ONA12_Presenter::post_type,
+				'post_status'            => 'any',
+				'posts_per_page'         => -1,
+				'update_term_meta'       => false,
+			);
+		$presenters = new WP_Query( $presenter_args );
+
+		foreach( $presenters->posts as $presenter ) {
+
+			$session_slug = get_post_meta( $presenter->ID, '_ona12_presenter_session_slug' );
+
+			if ( empty( $session_slug ) ) {
+				WP_CLI::line( "{$presenter->post_title} has no session slug, skipping" );
+				continue;
+			}
+
+			foreach( $session_slug as $slug ) {
+				$session_args = array(
+						'post_type'       => ONA12_Session::post_type,
+						'meta_key'        => '_ona12_session_slug',
+						'meta_value'      => $slug,
+						'numberposts'     => 1,
+					);
+				$session = get_posts( $session_args );
+				if ( empty( $session ) ) {
+					WP_CLI::line( "No session matching '{$slug}', skipping" );
+					continue;
+				}
+
+				$p2p_args = array(
+						'from'            => $session[0]->ID,
+						'to'              => $presenter->ID,
+					);
+				p2p_create_connection( 'sessions_to_presenters', $p2p_args );
+				WP_CLI::line( "Assigned {$presenter->post_title} to {$session[0]->post_title}" );
+			}
+
+		}
 
 	}
 
