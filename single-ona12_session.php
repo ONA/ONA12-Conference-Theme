@@ -79,7 +79,6 @@
 				</li>
 			<?php endwhile; ?>
 				</ul>
-				<div class="clear-left"></div>
 			</div>
 			<?php
 			wp_reset_postdata();
@@ -88,6 +87,8 @@
 			<div class="entry">
 				<?php the_content(); ?>
 			</div>
+
+			<div class="clear-left"></div>
 
 		</article>
 
