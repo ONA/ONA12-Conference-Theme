@@ -33,6 +33,8 @@ EOB
 		$this->args = wp_parse_args( $assoc_args, $defaults );
 
 		$handle = fopen( $this->args['csv'], 'r' );
+		if ( ! $handle )
+			WP_CLI::error( "Error accessing {$this->args['csv']}");
 		$c = 0;
 
 		$presenters = array();
@@ -56,6 +58,9 @@ EOB
 		foreach( $presenters as $presenter ) {
 
 			$full_name = $presenter['First Name'] . ' ' . $presenter['Last Name'];
+			if ( empty( $full_name ) )
+				continue; 
+
 			// Skip the presenter if it already exists
 			if ( $post = get_page_by_title( $full_name, OBJECT, ONA12_Presenter::post_type ) ) {
 				WP_CLI::line( "Skipping {$full_name}, already exists as #{$post->ID}" );
@@ -80,7 +85,10 @@ EOB
 			update_post_meta( $id, '_ona12_presenter_email_address', $email_address );
 		
 			$twitter = str_replace( '@', '', str_replace( 'http://twitter.com/', '', sanitize_text_field( $presenter['Twitter Handle'] ) ) );
-			update_post_meta( $id, '_ona12_presenter_twitter', $twitter );		
+			update_post_meta( $id, '_ona12_presenter_twitter', $twitter );
+
+			$session_slug = trim( strtolower( $presenter['Shortened Title'] ) );
+			update_post_meta( $id, '_ona12_presenter_session_slug', $session_slug );
 
 			WP_CLI::line( "Created {$full_name} as post #{$id}" );
 			$count_created++;
