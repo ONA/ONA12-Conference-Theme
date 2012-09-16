@@ -233,6 +233,59 @@ EOB
 
 	}
 
+	/**
+	 * Given a directory of images, assign them to presenters
+	 */
+	public function assign_images_to_presenters( $args, $assoc_args ) {
+
+		$defaults = array(
+				'dir'                     => '', // Absolute directory for where the files live
+				'path'                    => '', // URI path for the file on the webserver
+			);
+
+		$this->args = wp_parse_args( $assoc_args, $defaults );
+
+		$files = list_files( $this->args['dir'] );
+		foreach( $files as $file ) {
+			$basename = pathinfo( $file, PATHINFO_FILENAME );
+			$presenter = explode( '-', $basename );
+			array_pop( $presenter );
+			$first_name = array_pop( $presenter );
+			array_unshift( $presenter, $first_name );
+			$full_name = implode( '-', $presenter );
+			$presenter = get_page_by_path( $full_name, OBJECT, ONA12_Presenter::post_type );
+			if ( empty( $presenter ) ) {
+				WP_CLI::line( "No presenter found for {$basename}" );
+				continue;
+			}
+
+			$file_url = get_home_url() . '/web/' . pathinfo( $file, PATHINFO_BASENAME );
+			$tmp = download_url( $file_url );
+			// Set variables for storage
+			// fix file filename for query strings
+			preg_match( '/[^\?]+\.(jpe?g|jpe|gif|png)\b/i', $file, $matches );
+			$file_array['name'] = basename($matches[0]);
+			$file_array['tmp_name'] = $tmp;
+
+			// If error storing temporarily, unlink
+			if ( is_wp_error( $tmp ) ) {
+				@unlink($file_array['tmp_name']);
+				$file_array['tmp_name'] = '';
+			}
+
+			// do the validation and storage stuff
+			$attach_id = media_handle_sideload( $file_array, $presenter->ID );
+			// If error storing permanently, unlink
+			if ( is_wp_error( $attach_id ) ) {
+				@unlink($file_array['tmp_name']);
+				continue;
+			}
+
+			set_post_thumbnail( $presenter->ID, $attach_id );
+			WP_CLI::line( "Added {$basename} as thumbnail for {$presenter->post_title}" );
+		}
+	}
+
 
 
 }
