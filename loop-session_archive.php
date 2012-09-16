@@ -84,7 +84,7 @@
 	<?php foreach( $days_sessions as $start_time => $posts ): ?>
 		<div class="session-time-block">
 			<div class="session-start-time"><?php echo $start_time; ?></div>			
-			<ul class="session-list">
+			<ul class="session-list session-count-<?php echo count( $posts ); ?>">
 			<?php foreach( $posts as $post ): ?>
 				<?php setup_postdata( $post ); ?>
 				<?php

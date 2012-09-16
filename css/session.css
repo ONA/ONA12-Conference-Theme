@@ -61,6 +61,10 @@
 	margin-bottom: 10px;
 }
 
+.archive .session-day .session-time-block ul.session-count-1 li.single-session {
+	width:auto;
+}
+
 .archive .session-day .session-time-block ul li h4 {
 	margin-bottom: 0;
 }
