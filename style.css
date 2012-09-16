@@ -540,7 +540,8 @@ header .header-button a img {
 	background:url('img/diagonal-bg.png');
 }
 
-#content-container .box {
+#content-container .box,
+#posts-container .box {
 	margin:20px 0;
 	padding:20px;
 	background-color:#fff;
