@@ -155,8 +155,7 @@ class ONA12_Presenter {
 
 		switch( $column_name ) {
 			case 'gravatar':
-				$email_address = get_post_meta( $post_id, '_ona12_presenter_email_address', true );
-				echo get_avatar( $email_address, 48 );
+				echo ONA12_Presenter::get_avatar( 'ona12-small-square-avatar', $post_id );
 				break;
 			case 'affiliation':
 				$affiliation = array(
@@ -302,6 +301,24 @@ class ONA12_Presenter {
 	 * Get the avatar for a presenter
 	 */
 	public function get_avatar( $size = 64, $post_id = null ) {
+
+		if ( is_null( $post_id ) )
+			$post_id = get_the_ID();		
+
+		// Default to attached images
+		if ( has_post_thumbnail( $post_id ) ) {
+			echo get_the_post_thumbnail( $post_id, $size );
+			return;
+		}
+
+		switch( $size ) {
+			case 'ona12-medium-tall-avatar':
+				$size = 120;
+				break;
+			case 'ona12-small-square-avatar':
+				$size = 48;
+				break;
+		}
 
 		$email_address = self::get( 'email_address', $post_id );
 		return get_avatar( $email_address, $size );

@@ -61,7 +61,7 @@
 				<li>
 				<?php if ( 'multiple-presenters' == $count ): ?>
 				<div class="presenter-avatar">
-					<?php echo ONA12_Presenter::get_avatar( 48 ); ?>
+					<?php echo ONA12_Presenter::get_avatar( 'ona12-small-square-avatar' ); ?>
 				</div>
 				<div class="presenter-details">
 					<h5><?php echo ONA12_Presenter::get( 'name' ); ?></h5>
@@ -69,7 +69,7 @@
 				</div>
 				<?php else : ?>
 				<div class="presenter-avatar">
-					<?php echo ONA12_Presenter::get_avatar( 128 ); ?>
+					<?php echo ONA12_Presenter::get_avatar( 'ona12-medium-tall-avatar' ); ?>
 				</div>
 				<div class="presenter-details">
 					<h5><?php echo ONA12_Presenter::get( 'name' ); ?></h5>
