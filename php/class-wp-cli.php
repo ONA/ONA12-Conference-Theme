@@ -20,6 +20,9 @@ Possible subcommands:
 					import_sessions             Import sessions into a site
 					--csv=<file>                Where the data is stored
 					map_presenters_to_sessions  Create relationships between presenters and sessions
+					assign_images_to_presenters Assign presenter avatars based on a folder of images
+					--dir=<file>                Where on the server the files are stored
+					--uri=<value>               URI path to the publicly accessible images
 EOB
 		);
 	}
@@ -240,7 +243,7 @@ EOB
 
 		$defaults = array(
 				'dir'                     => '', // Absolute directory for where the files live
-				'path'                    => '', // URI path for the file on the webserver
+				'uri'                     => '', // URI path for the file on the webserver
 			);
 
 		$this->args = wp_parse_args( $assoc_args, $defaults );
@@ -259,7 +262,7 @@ EOB
 				continue;
 			}
 
-			$file_url = get_home_url() . '/web/' . pathinfo( $file, PATHINFO_BASENAME );
+			$file_url = get_home_url() . $this->args['uri'] . pathinfo( $file, PATHINFO_BASENAME );
 			$tmp = download_url( $file_url );
 			// Set variables for storage
 			// fix file filename for query strings
