@@ -87,16 +87,9 @@
 		 - To prevent iOS from applying its styles to the icon name it thusly: apple-touch-icon-precomposed.png
 		 - Transparency is not recommended (iOS will put a black BG behind the icon) -->
 	
-	<!-- CSS: screen, mobile & print are all in the same file -->
-	<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css">
-	<link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/960.css" type="text/css">
-	
 	<!-- Adding web fonts -->
 	
 	<link href="http://fonts.googleapis.com/css?family=Bitter" rel="stylesheet" type="text/css">
-	
-	<!-- all our JS is at the bottom of the page, except for Modernizr. -->
-	<script src="<?php bloginfo('template_directory'); ?>/_/js/modernizr-1.7.min.js"></script>
 	
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 

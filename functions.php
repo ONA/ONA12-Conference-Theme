@@ -1,5 +1,7 @@
 <?php
 
+define( 'ONA12_VERSION', '0.1' );
+
 require_once( dirname( __FILE__ ) . '/php/class-session.php' );
 require_once( dirname( __FILE__ ) . '/php/class-presenter.php' );
 
@@ -16,6 +18,7 @@ class ONA12 {
 		$this->presenter = new ONA12_Presenter;
 
 		add_action( 'after_setup_theme', array( $this, 'action_after_setup_theme' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 		add_action( 'init', array( $this, 'action_init' ) );
 
 		add_filter( 'excerpt_length', array( $this, 'filter_excerpt_length' ) );
@@ -37,6 +40,21 @@ class ONA12 {
 			add_post_type_support( ONA12_Session::post_type, WPCOM_Liveblog::key );
 			add_filter( 'liveblog_force_backwards_compat', '__return_true' );
 		}
+	}
+
+	/**
+	 * Enqueue scripts and styles
+	 */
+	function enqueue_scripts() {
+
+		// Scripts
+		wp_enqueue_script( 'jquery' );
+		wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/_/js/modernizr-1.7.min.js', array( 'jquery' ) );
+
+		// Styles
+		wp_enqueue_style( 'ona12-css', get_stylesheet_uri(), false, ONA12_VERSION );
+		wp_enqueue_style( 'ona12-grid-css', get_stylesheet_directory_uri() . '/960.css', false, ONA12_VERSION );
+
 	}
 
 	/**
