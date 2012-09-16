@@ -18,6 +18,8 @@ class ONA12 {
 		add_action( 'after_setup_theme', array( $this, 'action_after_setup_theme' ) );
 		add_action( 'init', array( $this, 'action_init' ) );
 
+		add_filter( 'excerpt_length', array( $this, 'filter_excerpt_length' ) );
+
 	}
 
 	/**
@@ -93,6 +95,15 @@ class ONA12 {
 				'can_create_post'  => false,
 			));
 		}
+	}
+
+	/**
+	 * Make excerpts shorter for sessions so they don't destroy the page
+	 */
+	function filter_excerpt_length( $length ) {
+		if ( ONA12_Session::post_type != get_post_type() )
+			return $length;
+		return 20;
 	}
 }
 
