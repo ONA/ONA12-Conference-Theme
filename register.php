@@ -16,11 +16,10 @@ get_header(); ?>
 		</div><!-- #register-1 -->
 		
 		<div id="register-3" class="grid_4">
-		<h3>ONA12 General Pass</h3>
-		<p class="prices">Members: $499<br />Non-Members: $799<br />Student Members: $150</p>
-		<p>Prices through July 31.<br />See below for details.</p>
-		
-		<p class="register-button"><a href="http://ona12.journalists.org/registration/general-pass">Register &rsaquo;</a></p>
+		<h3>ONA12 General Pass is SOLD OUT</h3>
+		<p>You can still register for<br />
+		The Thursday Workshops<br />
+		And the Career Summit & Job Fair</p>
 
 		<p class="register-button"><a href="https://members.journalists.org/membership">Become a Member &rsaquo;</a></p>
 		</div><!-- #register-3 -->
