@@ -133,11 +133,16 @@
 .single-ona12_session .session-presenters li .presenter-details h5 {
 	color: #333;
 	font-weight: normal;
+	margin-top: 10px;
 }
 
 .single-ona12_session .session-presenters li .presenter-affiliation {
 	font-size: 12px;
 	font-style: italic;
+}
+
+.single-ona12_session .session-presenters li .presenter-twitter {
+	font-size: 12;
 }
 
 .single-ona12_session .session-details {

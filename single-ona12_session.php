@@ -65,7 +65,10 @@
 				</div>
 				<div class="presenter-details">
 					<h5><?php echo ONA12_Presenter::get( 'name' ); ?></h5>
-					<span class="presenter-affiliation"><?php echo implode( ',<br />', array( ONA12_Presenter::get('title'), ONA12_Presenter::get('organization') ) ); ?></span>
+					<p class="presenter-affiliation"><?php echo implode( ',<br />', array( ONA12_Presenter::get('title'), ONA12_Presenter::get('organization') ) ); ?></p>
+					<?php if ( ONA12_Presenter::get( 'twitter' ) ) : ?>
+					<p class="presenter-twitter"><a href="<?php echo esc_url( 'http://twitter.com/' . ONA12_Presenter::get( 'twitter' ) ); ?>">@<?php echo ONA12_Presenter::get( 'twitter' ); ?></a></p>
+					<?php endif; ?>
 				</div>
 				<?php else : ?>
 				<div class="presenter-avatar">
@@ -73,7 +76,10 @@
 				</div>
 				<div class="presenter-details">
 					<h5><?php echo ONA12_Presenter::get( 'name' ); ?></h5>
-					<span class="presenter-affiliation"><?php echo implode( ',<br />', array( ONA12_Presenter::get('title'), ONA12_Presenter::get('organization') ) ); ?></span>
+					<p class="presenter-affiliation"><?php echo implode( ',<br />', array( ONA12_Presenter::get('title'), ONA12_Presenter::get('organization') ) ); ?></p>
+					<?php if ( ONA12_Presenter::get( 'twitter' ) ) : ?>
+					<p class="presenter-twitter"><a href="<?php echo esc_url( 'http://twitter.com/' . ONA12_Presenter::get( 'twitter' ) ); ?>">@<?php echo ONA12_Presenter::get( 'twitter' ); ?></a></p>
+					<?php endif; ?>
 				</div>
 				<?php endif; ?>
 				</li>
