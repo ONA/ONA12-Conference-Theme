@@ -17,6 +17,8 @@ class ONA12_Presenter {
 		// Do modifications to the admin
 		add_action( 'admin_init', array( $this, 'action_admin_init' ) );
 
+		add_action( 'wp_enqueue_scripts', array( $this, 'action_frontend_enqueue' ) );
+
 		// Set up metaboxes and related actions
 		add_filter( 'enter_title_here', array( $this, 'filter_enter_title_here' ) );
 		add_action( 'add_meta_boxes', array( $this, 'action_add_meta_boxes' ) );
@@ -92,6 +94,17 @@ class ONA12_Presenter {
 			return false;
 
 		return true;
+	}
+
+	/**
+	 * Enqueue frontend scripts
+	 */
+	function action_frontend_enqueue() {
+
+		if ( self::post_type != get_post_type() )
+			return;
+
+		wp_enqueue_style( 'ona12-presenter-css', get_stylesheet_directory_uri() . '/css/presenter.css' );
 	}
 
 	/**

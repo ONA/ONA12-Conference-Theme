@@ -1,0 +1,35 @@
+.post-type-archive-ona12_presenter .header-button {
+	display:none;
+}
+
+.post-type-archive-ona12_presenter img.header-logo-big {
+	width: 175px;
+	height: 175px;
+	float: right;
+}
+
+.post-type-archive-ona12_presenter .header-content hr {
+	display: none;
+}
+
+.post-type-archive-ona12_presenter .single-presenter {
+	float: left;
+	width: 270px;
+	height: 175px;
+	margin-left: 15px;
+	margin-right: 15px;
+	margin-bottom: 15px;
+}
+
+.post-type-archive-ona12_presenter .single-presenter .presenter-avatar {
+	float: left;
+}
+
+.post-type-archive-ona12_presenter .single-presenter .presenter-details {
+	margin-left: 135px;
+}
+
+.post-type-archive-ona12_presenter .single-presenter .presenter-details .presenter-affiliation {
+	font-size: 14px;
+	font-style:italic;
+}
