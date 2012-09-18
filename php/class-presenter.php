@@ -104,7 +104,7 @@ class ONA12_Presenter {
 		if ( self::post_type != get_post_type() )
 			return;
 
-		wp_enqueue_style( 'ona12-presenter-css', get_stylesheet_directory_uri() . '/css/presenter.css' );
+		wp_enqueue_style( 'ona12-presenter-css', get_stylesheet_directory_uri() . '/css/presenter.css', false, ONA12_VERSION );
 	}
 
 	/**
@@ -112,7 +112,7 @@ class ONA12_Presenter {
 	 */
 	function action_admin_enqueue() {
 
-		wp_enqueue_style( 'ona12-presenter-admin-css', get_stylesheet_directory_uri() . '/css/presenter-admin.css' );
+		wp_enqueue_style( 'ona12-presenter-admin-css', get_stylesheet_directory_uri() . '/css/presenter-admin.css', false, ONA12_VERSION );
 
 	}
 

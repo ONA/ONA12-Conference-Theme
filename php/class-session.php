@@ -126,8 +126,8 @@ class ONA12_Session {
 		if ( self::post_type != get_post_type() )
 			return;
 		
-		wp_enqueue_style( 'ona12-session-css', get_stylesheet_directory_uri() . '/css/session.css' );
-		wp_enqueue_style( 'ona12-liveblog-css', get_stylesheet_directory_uri() . '/css/liveblog.css' );
+		wp_enqueue_style( 'ona12-session-css', get_stylesheet_directory_uri() . '/css/session.css', false, ONA12_VERSION );
+		wp_enqueue_style( 'ona12-liveblog-css', get_stylesheet_directory_uri() . '/css/liveblog.css', false, ONA12_VERSION );
 	}
 
 	/**
