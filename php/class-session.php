@@ -27,6 +27,9 @@ class ONA12_Session {
 		// Filter posts on the manage posts view by start time by default
 		add_action( 'pre_get_posts', array( $this, 'action_pre_get_posts' ) );
 
+		// Always enable liveblog on this post type
+		add_filter( 'get_post_metadata', array( $this, 'filter_get_post_metadata' ), 10, 4 );
+
 	}
 
 	/**
@@ -378,6 +381,17 @@ class ONA12_Session {
 		
 		$session_type = (isset( $_POST['ona12-session-type'] ) ) ? (int)$_POST['ona12-session-type'] : '';
 		wp_set_object_terms( $post_id, $session_type, 'ona12_session_types' );		
+	}
+
+	/**
+	 * Always enable the liveblog
+	 */
+	function filter_get_post_metadata( $value, $object_id, $meta_key, $single ) {
+
+		if ( self::post_type != get_post_type( $object_id ) || 'liveblog' != $meta_key )
+			return null;
+
+		return true;
 	}
 
 }
