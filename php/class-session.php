@@ -137,9 +137,17 @@ class ONA12_Session {
 					'publish_liveblog'     => true,
 				);
 			add_role( 'liveblog', 'Liveblogger', $caps );
-			add_cap( 'author', 'publish_liveblog', true );
-			add_cap( 'editor', 'publish_liveblog', true );
-			add_cap( 'administrator', 'publish_liveblog', true );
+		}
+
+		$roles = array(
+				'author',
+				'editor',
+				'administrator',
+			);
+		foreach( $roles as $role ) {
+			$role = get_role( $role );
+			if ( ! $role->has_cap( 'publish_liveblog' ) )
+				$role->add_cap( 'publish_liveblog' );
 		}
 
 	}
