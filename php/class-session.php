@@ -15,6 +15,9 @@ class ONA12_Session {
 		// Register our custom post type and taxonomies
 		add_action( 'init', array( $this, 'action_init' ) );
 
+		// Create the liveblog editor role
+		add_action( 'admin_init', array( $this, 'action_admin_init' ) );
+
 		// Enqueue necessary resources
 		add_action( 'wp_enqueue_scripts', array( $this, 'action_frontend_enqueue' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'action_admin_enqueue' ) );
@@ -30,6 +33,7 @@ class ONA12_Session {
 		// Always enable liveblog on this post type
 		add_filter( 'get_post_metadata', array( $this, 'filter_get_post_metadata' ), 10, 4 );
 		add_filter( 'liveblog_settings', array( $this, 'filter_liveblog_settings' ) );
+		add_filter( 'liveblog_edit_cap', array( $this, 'filter_liveblog_edit_cap' ) );
 
 	}
 
@@ -119,6 +123,24 @@ class ONA12_Session {
 
 		add_filter( 'manage_' . self::post_type . '_posts_columns', array( $this, 'filter_manage_posts_columns' ) );
 		add_action( 'manage_posts_custom_column', array( $this, 'action_manage_posts_custom_column' ), 10, 2 );
+
+	}
+
+	/**
+	 * Register our liveblog editor role among other things
+	 */
+	function action_admin_init() {
+
+		if ( ! get_role( 'liveblog' ) ) {
+			$caps = array(
+					'read'                 => true,
+					'publish_liveblog'     => true,
+				);
+			add_role( 'liveblog', 'Liveblogger', $caps );
+			add_cap( 'author', 'publish_liveblog', true );
+			add_cap( 'editor', 'publish_liveblog', true );
+			add_cap( 'administrator', 'publish_liveblog', true );
+		}
 
 	}
 
@@ -401,6 +423,13 @@ class ONA12_Session {
 	function filter_liveblog_settings( $settings ) {
 		$settings['refresh_interval'] = 60;
 		return $settings;
+	}
+
+	/**
+	 * Lock down the liveblog cap
+	 */
+	function filter_liveblog_edit_cap( $cap ) {
+		return 'publish_liveblog';
 	}
 
 }
