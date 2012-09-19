@@ -29,6 +29,7 @@ class ONA12_Session {
 
 		// Always enable liveblog on this post type
 		add_filter( 'get_post_metadata', array( $this, 'filter_get_post_metadata' ), 10, 4 );
+		add_filter( 'liveblog_settings', array( $this, 'filter_liveblog_settings' ) );
 
 	}
 
@@ -392,6 +393,14 @@ class ONA12_Session {
 			return null;
 
 		return true;
+	}
+
+	/**
+	 * Change the refresh period to avoid breaking the world
+	 */
+	function filter_liveblog_settings( $settings ) {
+		$settings['refresh_interval'] = 60;
+		return $settings;
 	}
 
 }
