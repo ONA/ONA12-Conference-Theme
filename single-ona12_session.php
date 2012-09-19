@@ -109,7 +109,7 @@
 	</div><!-- #posts -->
 	</div><!-- #posts-container -->
 
-<?php get_sidebar(); ?>
+<?php get_sidebar( 'ona12_single_session' ); ?>
 
 </div><!-- #content-row -->
 
