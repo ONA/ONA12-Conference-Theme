@@ -8,6 +8,7 @@
 			'meta_key' => '_ona12_start_timestamp',
 			'orderby' => 'meta_value',
 			'order' => 'asc',
+			'no_found_rows' => true,
 		);
 	
 		if ( is_tax() ) {
@@ -89,14 +90,16 @@
 				<?php setup_postdata( $post ); ?>
 				<?php
 					$session_details = array();
-					$session_types = wp_get_post_terms( get_the_id(), 'ona12_session_types' );
-					if ( count( $session_types ) ) {
-						$session_details[] = '<span class="session-type"><a href="' . get_term_link( $session_types[0] ) . '">' . esc_html( $session_types[0]->name ) . '</a></span>';
+					$session_types = get_the_terms( $post->ID, 'ona12_session_types' );
+					if ( ! empty( $session_types ) ) {
+						$session_type = array_shift( $session_types );
+						$session_details[] = '<span class="session-type"><a href="' . get_term_link( $session_type ) . '">' . esc_html( $session_type->name ) . '</a></span>';
 					}
 					
-					$session_location = wp_get_post_terms( get_the_id(), 'ona12_locations' );
-					if ( count( $session_location ) ) {
-						$session_details[] = '<span class="session-location"><a href="' . get_term_link( $session_location[0] ) . '">' . esc_html( $session_location[0]->name ) . '</a></span>';
+					$session_locations = get_the_terms( $post->ID, 'ona12_locations' );
+					if ( ! empty( $session_locations ) ) {
+						$session_location = array_shift( $session_locations );
+						$session_details[] = '<span class="session-location"><a href="' . get_term_link( $session_location ) . '">' . esc_html( $session_location->name ) . '</a></span>';
 					}
 				?>
 				<li class="single-session">
