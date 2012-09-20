@@ -126,6 +126,10 @@
 	float: left;
 }
 
+.single-ona12_session .session-presenters.multiple-presenters li .presenter-avatar img {
+	border: 1px solid #EFEFEF;
+}
+
 .single-ona12_session .session-presenters.multiple-presenters li .presenter-details {
 	margin-left: 60px;
 }

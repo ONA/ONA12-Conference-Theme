@@ -1,14 +1,17 @@
-.post-type-archive-ona12_presenter .header-button {
+.post-type-archive-ona12_presenter .header-button,
+.single-ona12_presenter .header-button {
 	display:none;
 }
 
-.post-type-archive-ona12_presenter img.header-logo-big {
+.post-type-archive-ona12_presenter img.header-logo-big,
+.single-ona12_presenter img.header-logo-big {
 	width: 175px;
 	height: 175px;
 	float: right;
 }
 
-.post-type-archive-ona12_presenter .header-content hr {
+.post-type-archive-ona12_presenter .header-content hr,
+.single-ona12_presenter .header-content hr {
 	display: none;
 }
 
@@ -26,6 +29,49 @@
 	float: left;
 }
 
+.single-ona12_presenter .presenter-navigation {
+	font-size: 12px;
+	margin-bottom: 10px;
+}
+
+.single-ona12_presenter .presenter-avatar {
+	float: right;
+}
+
+.post-type-archive-ona12_presenter .single-presenter .presenter-avatar img,
+.single-ona12_presenter .presenter-avatar img {
+	border: 1px solid #EFEFEF;
+	padding: 1px;
+}
+
+.single-ona12_presenter .presenter-avatar {
+	margin-left: 10px;
+	margin-bottom: 10px;
+}
+
+.single-ona12_presenter .session-time-location {
+	float: right;
+	width: 240px;
+	text-align: right;
+}
+
+.single-ona12_presenter .session-time-location .label {
+	color: #6D8185;
+	width: 25px;
+}
+
+.single-ona12_presenter .presenter-sessions {
+	padding-top: 20px;
+}
+
+.single-ona12_presenter .session-details {
+	margin-right: 300px;
+}
+
+.single-ona12_presenter .article.post {
+	border-bottom: none;
+}
+
 .post-type-archive-ona12_presenter .single-presenter .presenter-details {
 	margin-left: 135px;
 }
@@ -33,4 +79,8 @@
 .post-type-archive-ona12_presenter .single-presenter .presenter-details .presenter-affiliation {
 	font-size: 14px;
 	font-style:italic;
+}
+
+.single-ona12_presenter .presenter-affiliation {
+	font-style: italic;
 }

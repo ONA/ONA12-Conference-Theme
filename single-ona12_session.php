@@ -61,10 +61,10 @@
 				<li>
 				<?php if ( 'multiple-presenters' == $count ): ?>
 				<div class="presenter-avatar">
-					<?php echo ONA12_Presenter::get_avatar( 'ona12-small-square-avatar' ); ?>
+					<a href="<?php the_permalink(); ?>"><?php echo ONA12_Presenter::get_avatar( 'ona12-small-square-avatar' ); ?></a>
 				</div>
 				<div class="presenter-details">
-					<h5><?php echo ONA12_Presenter::get( 'name' ); ?></h5>
+					<h5><a href="<?php the_permalink(); ?>"><?php echo ONA12_Presenter::get( 'name' ); ?></a></h5>
 					<p class="presenter-affiliation"><?php echo implode( ',<br />', array( ONA12_Presenter::get('title'), ONA12_Presenter::get('organization') ) ); ?></p>
 					<?php if ( ONA12_Presenter::get( 'twitter' ) ) : ?>
 					<p class="presenter-twitter"><a href="<?php echo esc_url( 'http://twitter.com/' . ONA12_Presenter::get( 'twitter' ) ); ?>">@<?php echo ONA12_Presenter::get( 'twitter' ); ?></a></p>
@@ -72,10 +72,10 @@
 				</div>
 				<?php else : ?>
 				<div class="presenter-avatar">
-					<?php echo ONA12_Presenter::get_avatar( 'ona12-medium-tall-avatar' ); ?>
+					<a href="<?php the_permalink(); ?>"><?php echo ONA12_Presenter::get_avatar( 'ona12-medium-tall-avatar' ); ?></a>
 				</div>
 				<div class="presenter-details">
-					<h5><?php echo ONA12_Presenter::get( 'name' ); ?></h5>
+					<h5><a href="<?php the_permalink(); ?>"><?php echo ONA12_Presenter::get( 'name' ); ?></a></h5>
 					<p class="presenter-affiliation"><?php echo implode( ',<br />', array( ONA12_Presenter::get('title'), ONA12_Presenter::get('organization') ) ); ?></p>
 					<?php if ( ONA12_Presenter::get( 'twitter' ) ) : ?>
 					<p class="presenter-twitter"><a href="<?php echo esc_url( 'http://twitter.com/' . ONA12_Presenter::get( 'twitter' ) ); ?>">@<?php echo ONA12_Presenter::get( 'twitter' ); ?></a></p>
@@ -108,8 +108,6 @@
 	
 	</div><!-- #posts -->
 	</div><!-- #posts-container -->
-
-<?php get_sidebar( 'ona12_single_session' ); ?>
 
 </div><!-- #content-row -->
 
