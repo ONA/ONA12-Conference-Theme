@@ -57,7 +57,7 @@
 							echo '</div>';
 						}
 					?>
-					<h4><?php the_title(); ?></h4>
+					<h4><a target="_blank" href="<?php echo esc_url( Knight_Data_Challenge_Announcement::get_project_field( 'url' ) ); ?>"><?php the_title(); ?></a></h4>
 					<div class="project-description">
 					<?php the_excerpt(); ?>
 					</div>

@@ -19,6 +19,11 @@
 	padding-top: 15px;
 }
 
+#posts-container h2 a,
+#posts-container h4 a {
+	color: #14545F;
+}
+
 #knight-projects {
 	border-top: 3px solid #F15822;
 	border-bottom: 3px solid #F15822;
