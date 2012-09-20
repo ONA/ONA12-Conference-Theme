@@ -4,6 +4,7 @@ define( 'ONA12_VERSION', '0.1' );
 
 require_once( dirname( __FILE__ ) . '/php/class-session.php' );
 require_once( dirname( __FILE__ ) . '/php/class-presenter.php' );
+require_once( dirname( __FILE__ ) . '/php/class-kdc-announcement.php' );
 
 if ( defined( 'WP_CLI' ) && WP_CLI )
 	require_once( dirname( __FILE__ ) . '/php/class-wp-cli.php' );
@@ -16,6 +17,7 @@ class ONA12 {
 
 		$this->session = new ONA12_Session();
 		$this->presenter = new ONA12_Presenter;
+		$this->kdc_announcement = new Knight_Data_Challenge_Announcement;
 
 		add_action( 'after_setup_theme', array( $this, 'action_after_setup_theme' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );

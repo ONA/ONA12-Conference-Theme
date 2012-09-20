@@ -1,0 +1,92 @@
+#nav-container {
+	background-color: #666;
+	border-color: #BA0077;
+}
+
+#header-container,
+#content-container {
+	background-color: #004681;
+	background-image: none;
+}
+
+
+#header {
+	padding-bottom: 0;
+}
+
+#header-logo {
+	float: right;
+	padding-top: 15px;
+}
+
+#knight-projects {
+	border-top: 3px solid #F15822;
+	border-bottom: 3px solid #F15822;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+#knight-projects .project-description {
+	font-size: 13px;
+	line-height: 19px;
+}
+
+#knight-projects li {
+	margin-top: 15px;
+	margin-left: 15px;
+	margin-right: 15px;
+	margin-bottom: 15px;
+	float: left;
+	width: 250px;
+}
+
+#knight-projects .project-avatars {
+	float: right;
+	margin-left: 10px;
+	width: 64px;
+}
+
+#knight-projects .project-avatars img {
+	border: 1px solid #EFEFEF;
+	padding: 1px;
+	margin-bottom: 5px;
+}
+
+#knight-projects .project-details {
+	font-size: 12px;
+	line-height: 18px
+}
+
+#knight-projects .project-details span.label {
+	font-weight: bold;
+}
+
+#knight-lead {
+	width: 600px;
+	font-family: "Bitter", Georgia, Times, serif;
+	font-weight: normal;
+	font-size: 48px;
+	background-color: #004681;
+	color: #FFF;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+#knight-lead span {
+	color: #ffeb00;
+}
+
+.column {
+	width: 410px;
+	margin-left: 15px;
+	margin-right: 15px;
+}
+
+.right-column {
+	float: right;
+	margin-top: -25px;
+}
+
+#footer-container {
+	background-color: #EFEFEF;
+}
