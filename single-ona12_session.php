@@ -2,7 +2,7 @@
 
 <div id="content-row" class="container_12">
 
-	<?php get_sidebar( 'ona12_session' ); ?>
+	<?php get_sidebar( 'ona12_single_session' ); ?>
 
 	<div id="posts-container" class="grid_9">
 	<div id="posts" class="box">
