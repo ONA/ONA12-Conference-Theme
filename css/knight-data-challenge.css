@@ -26,6 +26,12 @@
 	padding-bottom: 15px;
 }
 
+.share-buttons {
+	float: right;
+	margin-left: 10px;
+	margin-top: -38px;
+}
+
 #knight-projects .project-description {
 	font-size: 13px;
 	line-height: 19px;
