@@ -3,13 +3,13 @@
 	display: none;
 }
 
-.single-ona12_session #session-left-sidebar #sidebar-logo,
-.archive #session-left-sidebar #sidebar-logo {
+.single-ona12_session #sidebar #sidebar-logo,
+.archive #sidebar #sidebar-logo {
 	padding-top: 10px;
 }
 
-.single-ona12_session #session-left-sidebar #sidebar-logo h3,
-.archive #session-left-sidebar #sidebar-logo h3 {
+.single-ona12_session #sidebar #sidebar-logo h3,
+.archive #sidebar #sidebar-logo h3 {
 	text-align: center;
 	font-size: 18px;
 	padding-top: 10px;

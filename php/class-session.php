@@ -440,4 +440,26 @@ class ONA12_Session {
 		return 'publish_liveblog';
 	}
 
+	/**
+	 * Get a given field for a session
+	 * Can be used within the loop, but not a requirement
+	 */
+	public function get( $field, $post_id = null ) {
+
+		if ( is_null( $post_id ) )
+			$post_id = get_the_ID();
+
+		switch( $field ) {
+			case 'title':
+				return get_the_title( $post_id );
+			case 'location':
+				$session_location = get_the_terms( $post_id, 'ona12_locations' );
+				if ( ! empty( $session_location ) ) {
+					$session_location = array_shift( $session_location )->name;
+				}
+				return $session_location;
+		}
+		return false;
+	}
+
 }
