@@ -1,3 +1,7 @@
+#liveblog-container {
+	clear:both;
+}
+
 #liveblog-container fieldset#liveblog-actions legend ul,
 #liveblog-container fieldset#liveblog-actions legend li {
 	display: inline;
