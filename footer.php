@@ -24,7 +24,7 @@
 			<div class="conference-committee footer-content alpha grid_3">
 	<dl>
 		<dt class="alpha">Conference Chairs</dt>
-		<dd>Pam Maples <em>Stanford University</em></dd>
+		<dd>Pam Maples <em>Knight at Stanford University</em></dd>
 		<dd>Anthony Moor <em>Yahoo</em></dd>
 		
 		<dt>Board Adviser</dt>
@@ -55,8 +55,7 @@
 		<dd><a href="mailto:director@journalists.org">Jane McDonnell</a> <em>ONA</em></dd>
 		
 		<dt>Volunteers</dt>
-		<dd><a href="mailto:ona12volunteers@journalists.org">Laura Cochran</a> <em>USA&nbsp;TODAY</em></dd>
-		<dd>Casey Newton <em>San Francisco Chronicle</em></dd>
+		<dd><a href="mailto:ona12volunteers@journalists.org">Laura Cochran</a> <em>Digital First Media</em></dd>
 		
 		<dt>Student Newsroom</dt>
 		<dd><a href="mailto:ona12newsroom@journalists.org">Curt Chandler</a> <em>Penn State</em></dd>
