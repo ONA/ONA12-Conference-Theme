@@ -32,14 +32,15 @@
 
 			<div class="session-details">
 				<?php
-					$start_timestamp = (int)get_post_meta( get_the_id(), '_ona12_start_timestamp', true );
-					$location = wp_get_object_terms( $post->ID, 'ona12_locations', array( 'fields' => 'names' ) );
-					$location = ( !empty( $location ) ) ? $location[0] : '';
+					$start_timestamp = ONA12_Session::get( 'start_timestamp' );
 					$session_details = array(
 							date( 'l', $start_timestamp ),
 							date( 'g:i a', $start_timestamp ),
-							$location,
 						);
+					if ( $location = ONA12_Session::get( 'location' ) )
+						$session_details[] = $location;
+					if ( $hashtag = ONA12_Session::get( 'hashtag' ) )
+						$session_details[] = '<a target="_blank" href="https://twitter.com/i/#!/search/?q=' . urlencode( $hashtag ) . '">' . $hashtag . '</a>';
 				echo '<ul><li>' . implode( '</li><li>', $session_details ) . '</li></ul>';
 				?>
 			</div>
