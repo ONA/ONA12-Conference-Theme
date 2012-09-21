@@ -70,7 +70,6 @@
 					<li class="single-session">
 						<h5 class="session-title"><a href="<?php echo get_permalink( $session->ID ); ?>"><?php echo get_the_title( $session->ID ); ?></a></h5>
 						<ul class="session-details"><li><?php echo implode( '</li><li>', $session_details ); ?></li></ul>
-						<div class="session-description"><?php echo apply_filters( 'the_excerpt', $session->post_excerpt ); ?></div>
 					</li>
 					<?php endforeach; ?>
 				</ul>
