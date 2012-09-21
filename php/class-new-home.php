@@ -62,7 +62,9 @@ class ONA12_New_Home {
 
 	function action_frontend_enqueue() {
 
-		// @todo Only enqueue if page template is loaded
+		// Only enqueue if page template is loaded
+		if ( ! is_page_template( 'page-new-home.php' ) )
+			return;
 
 		wp_enqueue_style( 'ona12-new-home-css', get_stylesheet_directory_uri() . '/css/new-home.css', false, ONA12_VERSION );
 	}
