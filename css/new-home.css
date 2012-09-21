@@ -1,0 +1,34 @@
+#session-updates {
+	width: 600px;
+	border: 3px solid #EF3500;
+}
+
+#session-updates-title {
+	background-color: #EF3500;
+	width: 100%;
+	padding-top: 3px;
+	padding-bottom: 5px;
+	color: #FFF;
+	text-transform: uppercase;
+}
+
+#session-updates ul li {
+	margin: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-top: 1px solid #EFEFEF;
+}
+
+#session-updates ul li:first-child {
+	border-top: none;
+}
+
+#session-updates ul li .liveblog-entry-text {
+	margin-bottom: 15px;
+}
+
+#session-updates ul li .liveblog-meta {
+	color: #BBB;
+	font-size: 12px;
+	text-align: right;
+}
