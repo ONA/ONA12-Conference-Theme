@@ -467,7 +467,7 @@ class ONA12_Session {
 
 	public function is_current_session() {
 		$time = time() - 25200;
-		if ( ( $time > self::get( 'start_timestamp' ) ) && ( $time < self::get( 'end_timestamp' ) ) )
+		if ( ( $time > ( self::get( 'start_timestamp' ) - 600 ) ) && ( $time < ( self::get( 'end_timestamp' ) + 600 ) ) )
 			return true;
 		else
 			return false;
