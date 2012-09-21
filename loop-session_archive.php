@@ -111,12 +111,10 @@
 						$session_type = array_shift( $session_types );
 						$session_details[] = '<span class="session-type"><a href="' . get_term_link( $session_type ) . '">' . esc_html( $session_type->name ) . '</a></span>';
 					}
-					
-					$session_locations = get_the_terms( $post->ID, 'ona12_locations' );
-					if ( ! empty( $session_locations ) ) {
-						$session_location = array_shift( $session_locations );
+					if ( $session_location = ONA12_Session::get( 'location', get_the_ID(), 'object' ) )
 						$session_details[] = '<span class="session-location"><a href="' . get_term_link( $session_location ) . '">' . esc_html( $session_location->name ) . '</a></span>';
-					}
+					if ( $hashtag = ONA12_Session::get( 'hashtag' ) )
+						$session_details[] = '<span class="session-hashtag"><a target="_blank" href="https://twitter.com/i/#!/search/?q=' . urlencode( $hashtag ) . '">' . $hashtag . '</a></span>';
 				?>
 				<li class="single-session">
 					<h4 class="session-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>

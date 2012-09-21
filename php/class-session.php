@@ -455,7 +455,7 @@ class ONA12_Session {
 	 * Get a given field for a session
 	 * Can be used within the loop, but not a requirement
 	 */
-	public function get( $field, $post_id = null ) {
+	public function get( $field, $post_id = null, $retval = 'string' ) {
 
 		if ( is_null( $post_id ) )
 			$post_id = get_the_ID();
@@ -468,7 +468,11 @@ class ONA12_Session {
 				return (int)get_post_meta( $post_id, '_ona12_' . $field, true );
 			case 'location':
 				$session_location = get_the_terms( $post_id, 'ona12_locations' );
-				if ( ! empty( $session_location ) ) {
+				if ( is_wp_error( $session_location ) )
+					return false; 
+				if ( ! empty( $session_location ) && 'object' == $retval ) {
+					$session_location = array_shift( $session_location );
+				} else if ( ! empty( $session_location ) && 'string' == $retval ) {
 					$session_location = array_shift( $session_location )->name;
 				}
 				return $session_location;
