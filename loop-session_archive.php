@@ -25,13 +25,29 @@
 		$sessions = new WP_Query( $args );
 	
 		$session_days = array(
-			'09/20/2011',
-			'09/21/2011',
-			'09/22/2011',		
+			'09/20/2012',
+			'09/21/2012',
+			'09/22/2012',
 		);
+
+		// Some crafty shit to put the current date at the top
+		$today = date( 'm/d/Y', ( time() - 25200 ) );
+		if ( in_array( $today, $session_days ) ) {
+			if ( 1 == array_search( $today, $session_days ) ) {
+				$yesterday = array_shift( $session_days );
+				$session_days[] = $yesterday;
+			} else if ( 2 == array_search( $today, $session_days ) ) {
+				$saturday = array_pop( $session_days );
+				array_unshift( $session_days, $saturday );
+			}
+		}
 	
 		// Load all of the sessions into an array based on start date and time
-		$all_sessions = array();
+		$all_sessions = array(
+				$session_days[0] => array(),
+				$session_days[1] => array(),
+				$session_days[2] => array(),
+			);
 		while( $sessions->have_posts() ) {
 			$sessions->the_post();
 			$start_timestamp = get_post_meta( get_the_ID(), '_ona12_start_timestamp', true );
