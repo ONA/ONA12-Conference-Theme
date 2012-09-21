@@ -64,7 +64,7 @@
 
 .archive .session-day .session-time-block ul.session-count-1 li.single-session {
 	width:auto;
-	min-height: auto;
+	min-height: 0;
 }
 
 .archive .session-day .session-time-block ul li h4 {
