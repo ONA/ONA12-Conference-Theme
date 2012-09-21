@@ -59,10 +59,12 @@
 	margin-right: 15px;
 	margin-top: 10px;
 	margin-bottom: 10px;
+	min-height: 200px;
 }
 
 .archive .session-day .session-time-block ul.session-count-1 li.single-session {
 	width:auto;
+	min-height: auto;
 }
 
 .archive .session-day .session-time-block ul li h4 {
