@@ -55,7 +55,7 @@
 
 			<div id="session-updates">
 				<?php if ( $sessions = z_get_posts_in_zone( 'featured-sessions', array( 'post_status' => 'publish', 'posts_per_page' => 3 ) ) ): ?>
-				<h4 id="featured-sessions-title">Featured Sessions</h4>
+				<h4 id="featured-sessions-title"><a class="see-all" href="<?php echo home_url( '/sessions/' ); ?>">See all &rarr;</a>Featured Sessions</h4>
 				<ul id="featured-sessions">
 					<?php foreach( $sessions as $session ): ?>
 					<?php

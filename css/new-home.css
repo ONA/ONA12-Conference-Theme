@@ -63,7 +63,7 @@
 
 #newsroom-title {
 	background-color: #EF3500;
-	width: 100%;
+	width: auto;
 	padding-top: 4px;
 	padding-bottom: 5px;
 	padding-right: 15px;
@@ -90,6 +90,12 @@
 	color: #FFF;
 	text-transform: uppercase;
 	padding-left: 15px;
+}
+
+#featured-sessions-title a.see-all {
+	float: right;
+	margin-right: 15px;
+	color:rgba(255, 255, 255, 0.6);
 }
 
 ul#featured-sessions li.single-session {
