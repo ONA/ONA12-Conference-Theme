@@ -452,6 +452,9 @@ class ONA12_Session {
 		switch( $field ) {
 			case 'title':
 				return get_the_title( $post_id );
+			case 'start_timestamp':
+			case 'end_timestamp':
+				return (int)get_post_meta( $post_id, '_ona12_' . $field, true );
 			case 'location':
 				$session_location = get_the_terms( $post_id, 'ona12_locations' );
 				if ( ! empty( $session_location ) ) {
@@ -460,6 +463,32 @@ class ONA12_Session {
 				return $session_location;
 		}
 		return false;
+	}
+
+	public function is_current_session() {
+		$time = time() - 25200;
+		if ( ( $time > self::get( 'start_timestamp' ) ) && ( $time < self::get( 'end_timestamp' ) ) )
+			return true;
+		else
+			return false;
+	}
+
+	/**
+	 * Get the livestream embed if there is one at this time
+	 */
+	public function get_livestream() {
+
+		$post_id = get_the_ID();
+		$livestreams = array(
+			'Grand Ballroom A'         => '<iframe width="420" height="295" src="http://cdn.livestream.com/embed/onlinenewsassociation?layout=4&color=0xe7e7e7&autoPlay=false&mute=false&iconColorOver=0x888888&iconColor=0x777777&allowchat=false&height=295&width=420" style="border:0;outline:0" frameborder="0" scrolling="no"></iframe>',
+			'Grand Ballroom'           => '<iframe width="420" height="295" src="http://cdn.livestream.com/embed/onlinenewsassociation?layout=4&color=0xe7e7e7&autoPlay=false&mute=false&iconColorOver=0x888888&iconColor=0x777777&allowchat=false&height=295&width=420" style="border:0;outline:0" frameborder="0" scrolling="no"></iframe>',
+			'Grand Ballroom BC'        => '<iframe width="420" height="295" src="http://cdn.livestream.com/embed/ona09frontendsessions?layout=4&color=0xe7e7e7&autoPlay=false&mute=false&iconColorOver=0x888888&iconColor=0x777777&allowchat=false&height=295&width=420" style="border:0;outline:0" frameborder="0" scrolling="no"></iframe>',
+			'Seacliff A-D'             => '<iframe width="420" height="295" src="http://cdn.livestream.com/embed/ona09backendsessions?layout=4&color=0xe7e7e7&autoPlay=false&mute=false&iconColorOver=0x888888&iconColor=0x777777&allowchat=false&height=295&width=420" style="border:0;outline:0" frameborder="0" scrolling="no"></iframe>',
+			'Bayview A-B'              => '<iframe width="420" height="295" src="http://cdn.livestream.com/embed/onatrack4?layout=4&color=0xe7e7e7&autoPlay=false&mute=false&iconColorOver=0x888888&iconColor=0x777777&allowchat=false&height=295&width=420" style="border:0;outline:0" frameborder="0" scrolling="no"></iframe>',
+		);
+		$location = self::get( 'location', $post_id );
+		if ( self::is_current_session() && array_key_exists( $location, $livestreams ) )
+			return $livestreams[$location];
 	}
 
 }

@@ -91,6 +91,10 @@
 			endif; ?>
 			
 			<div class="entry">
+				<?php
+					if ( $livestream = ONA12_Session::get_livestream() )
+						echo '<div id="livestream-player">' . $livestream . '</div><div id="livestream-notice">See below the description for live updates from the session.</div>';
+				?>
 				<?php the_content(); ?>
 			</div>
 

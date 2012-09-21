@@ -108,6 +108,17 @@
 	margin-right: 20px;
 }
 
+.single-ona12_session #livestream-player {
+	padding-top: 25px;
+}
+
+.single-ona12_session #livestream-notice {
+	padding-top: 5px;
+	font-size: 11px;
+	font-style: italic;
+	color: #888;
+}
+
 .single-ona12_session .session-presenters.multiple-presenters {
 	width: 200px;
 }
