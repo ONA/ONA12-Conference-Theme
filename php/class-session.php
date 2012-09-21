@@ -284,6 +284,8 @@ class ONA12_Session {
 		
 		$session_type_tax = wp_get_object_terms( $post->ID, 'ona12_session_types', array( 'fields' => 'ids' ) );
 		$session_type = ( !empty( $session_type_tax ) ) ? (int)$session_type_tax[0] : 0;
+
+		$hashtag = get_post_meta( $post->ID, '_ona12_hashtag', true );
 		?>
 		
 		<div class="inner">
@@ -298,6 +300,12 @@ class ONA12_Session {
 				<h4>Short Description:</h4>
 				<textarea id="excerpt" name="excerpt" rows="2" cols="60"><?php echo esc_textarea( $post->post_excerpt ); ?></textarea>
 				<p class="description">Basic HTML is allowed. If filled out, this short description will appear on pages other than the single session page. One to two sentences is a great length.</p>
+			</div>
+
+			<div class="option-item">
+				<h4>Hashtag:</h4>
+				<input type="text" id="ona12-hashtag" name="ona12-hashtag" value="<?php echo esc_attr( $hashtag ); ?>" />
+				<p class="description">Something like "#ONA12Keynote" is great</p>
 			</div>
 			
 			<div class="session-active-wrap option-item">
@@ -407,6 +415,9 @@ class ONA12_Session {
 		$end_timestamp = strtotime( $_POST['ona12-end'] );
 		update_post_meta( $post_id, '_ona12_end_timestamp', $end_timestamp );
 		
+		$hashtag = sanitize_text_field( $_POST['ona12-hashtag'] );
+		update_post_meta( $post_id, '_ona12_hashtag', $hashtag );
+
 		$location = (isset( $_POST['ona12-location'] ) ) ? (int)$_POST['ona12-location'] : '';
 		wp_set_object_terms( $post_id, $location, 'ona12_locations' );
 		
