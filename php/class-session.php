@@ -13,7 +13,7 @@ class ONA12_Session {
 	function __construct() {
 
 		// Register our custom post type and taxonomies
-		add_action( 'init', array( $this, 'action_init' ) );
+		add_action( 'init', array( $this, 'action_init' ), 5 );
 
 		// Create the liveblog editor role
 		add_action( 'admin_init', array( $this, 'action_admin_init' ) );
@@ -67,6 +67,7 @@ class ONA12_Session {
 				'supports' => array(
 						'title',
 						'thumbnail',
+						'zoninator_zones',
 					),
 			);
 		register_post_type( self::post_type, $args );

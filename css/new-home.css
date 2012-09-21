@@ -1,3 +1,8 @@
+#header {
+	padding-top: 10px;
+	padding-bottom: 0px;
+}
+
 #home-featured {
 	padding-bottom: 15px;
 }
@@ -15,7 +20,7 @@
 #home-featured-primary-details {
 	color: #EFEFEF;
 	background-color: #14545F;
-	padding-top: 5px;
+	padding-top: 10px;
 	padding-bottom: 5px;
 	padding-left: 15px;
 	padding-right: 15px;
@@ -24,6 +29,11 @@
 
 #home-featured-primary-details h3 a {
 	color: #FFF;
+}
+
+#home-featured-primary-details p {
+	font-size: 14px;
+	line-height: 20px;
 }
 
 #home-featured-secondary .home-featured-byline {
@@ -46,6 +56,11 @@
 	color: #14545F;
 }
 
+#home-featured-secondary ul li p {
+	font-size: 13px;
+	line-height: 19px;
+}
+
 #newsroom-title {
 	background-color: #EF3500;
 	width: 100%;
@@ -57,36 +72,68 @@
 	text-align: right;
 }
 
+#sponsor-rail {
+	float: right;
+}
+
 #session-updates {
 	width: 594px;
 	border: 3px solid #EF3500;
 }
 
-#session-updates-title {
+#session-updates-title,
+#featured-sessions-title {
 	background-color: #EF3500;
-	width: 100%;
+	width: auto;
 	padding-top: 3px;
 	padding-bottom: 5px;
 	color: #FFF;
 	text-transform: uppercase;
+	padding-left: 15px;
 }
 
-#session-updates ul li {
+ul#featured-sessions li.single-session {
+	float: left;
+	width: 275px;
+	min-height: 75px;
+	margin: 10px;
+}
+
+ul#featured-sessions li ul.session-details li {
+	margin-left: 5px;
+	padding-left: 5px;
+	display: inline;
+	border-left: 1px solid #BBB;
+}
+
+ul#featured-sessions li ul.session-details li:first-child {
+	border-left: none;
+	padding-left: 0;
+	margin-left: 0;
+}
+
+ul#featured-sessions li ul li,
+ul#featured-sessions li ul li a {
+	color:#888;
+	font-size: 12px;
+}
+
+#session-updates ul#liveblog-updates li {
 	margin: 10px;
 	padding-top: 10px;
 	padding-bottom: 10px;
 	border-top: 1px solid #EFEFEF;
 }
 
-#session-updates ul li:first-child {
+#session-updates ul#liveblog-updates li:first-child {
 	border-top: none;
 }
 
-#session-updates ul li .liveblog-entry-text {
+#session-updates ul#liveblog-updates li .liveblog-entry-text {
 	margin-bottom: 15px;
 }
 
-#session-updates ul li .liveblog-meta {
+#session-updates ul#liveblog-updates li .liveblog-meta {
 	color: #BBB;
 	font-size: 12px;
 	text-align: right;
