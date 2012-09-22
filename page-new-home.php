@@ -49,9 +49,9 @@
 			<div class="clear-both"></div>
 
 			<div id="sponsor-rail">
-				<a href="http://themidway.tumblr.com/"><img src="<?php echo get_stylesheet_directory_uri() . '/img/midway-375.jpg'; ?>" width="300px" /></a>
+				<a href="http://themidway.tumblr.com/"><img src="<?php echo get_stylesheet_directory_uri() . '/img/midway-375.jpg'; ?>" width="300px" /></a><br />
+				<a href="http://ona12.journalists.org/sponsor/sponsors-exhibitors/"><img src="<?php echo get_stylesheet_directory_uri() . '/img/sponsors.png'; ?>" width="300px" style="border-top:1px solid #EFEFEF;padding-top:10px;margin-top:10px;" /></a>
 			</div>
-
 
 			<div id="session-updates">
 				<?php if ( $sessions = z_get_posts_in_zone( 'featured-sessions', array( 'post_status' => 'publish', 'posts_per_page' => 3 ) ) ): ?>
