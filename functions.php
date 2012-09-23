@@ -1,6 +1,6 @@
 <?php
 
-define( 'ONA12_VERSION', '0.9' );
+define( 'ONA12_VERSION', '1.0' );
 
 require_once( dirname( __FILE__ ) . '/php/class-session.php' );
 require_once( dirname( __FILE__ ) . '/php/class-presenter.php' );

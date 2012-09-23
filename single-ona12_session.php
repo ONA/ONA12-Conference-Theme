@@ -45,6 +45,12 @@
 				?>
 			</div>
 
+			<?php if ( $video_archive = ONA12_Session::get( 'video_archive' ) ) : ?>
+			<div id="session-video-archive">
+				<?php echo $video_archive; ?>
+			</div>
+			<?php endif; ?>
+
 			<?php
 				$args = array(
 						'post_type'      => ONA12_Presenter::post_type,

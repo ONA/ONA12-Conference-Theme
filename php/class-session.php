@@ -487,7 +487,7 @@ class ONA12_Session {
 					$session_location = array_shift( $session_location )->name;
 				}
 				return $session_location;
-			case 'hashtag':
+			default;
 				return get_post_meta( $post_id, '_ona12_' . $field, true );
 		}
 		return false;
